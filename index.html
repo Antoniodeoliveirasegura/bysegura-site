@@ -27,6 +27,10 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
@@ -191,6 +195,14 @@
       background-color: #0056b3;
     }
 
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      margin-top: 1rem;
+      border-radius: 10px;
+    }
+
     #form-thankyou {
       display: none;
       margin-top: 1rem;
@@ -236,7 +248,7 @@
     <div class="links">
       <a href="https://github.com/antoniodeoliveirasegura" target="_blank" data-tooltip="Visit my GitHub profile">GitHub</a>
       <a href="https://www.linkedin.com/in/antoniodeoliveirasegura/" target="_blank" data-tooltip="Visit my LinkedIn profile">LinkedIn</a>
-      <a href="/resume.pdf" target="_blank" data-tooltip="View my resume">Resume</a>
+      <a href="#resume" data-tooltip="Jump to embedded resume">Resume</a>
     </div>
 
     <section>
@@ -262,7 +274,15 @@
       </form>
       <p id="form-thankyou">Thanks! I'll get back to you soon.</p>
     </section>
-  </main>
+
+    <section id="resume">
+        <h2>My Resume</h2>
+        <img src="resume_preview.png" alt="Resume preview image" style="max-width: 100%; border-radius: 10px; box-shadow: 0 1px 8px rgba(0,0,0,0.1);" />
+        <p style="margin-top: 1rem;">
+            <a href="resume.pdf" target="_blank" style="text-decoration: none; background-color: var(--primary); color: white; padding: 0.6rem 1.2rem; border-radius: 6px;">Download PDF</a>
+        </p>
+    </section>
+</main>
 
   <footer>
     &copy; 2025 Antonio Segura · bysegura.com
