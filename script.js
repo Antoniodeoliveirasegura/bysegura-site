@@ -284,7 +284,7 @@ touchBarButtons.forEach((button, index) => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 break;
             case 'Ideas':
-                window.location.href = 'projects.html';
+                window.location.href = '/projects';
                 break;
             case 'Music':
                 window.open('https://open.spotify.com/user/960cigs19p1bbo35a35wiiu4x?si=02f9d763ab844093', '_blank');
