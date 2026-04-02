@@ -7,6 +7,8 @@ export function ThemeProvider({ children }) {
     const saved = localStorage.getItem('theme');
     const dark = saved !== null ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
     // Apply synchronously so body class is set before first render
+    document.documentElement.classList.toggle('dark', dark);
+    document.documentElement.classList.toggle('light', !dark);
     document.body.classList.toggle('dark', dark);
     document.body.classList.toggle('light', !dark);
     return dark;
@@ -17,6 +19,8 @@ export function ThemeProvider({ children }) {
   });
 
   useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDark);
+    document.documentElement.classList.toggle('light', !isDark);
     document.body.classList.toggle('dark', isDark);
     document.body.classList.toggle('light', !isDark);
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
