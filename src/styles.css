@@ -436,6 +436,10 @@ body.dark footer  { color: #777; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); }
 
 html { scroll-behavior: smooth; }
 
+/* Fix iOS Safari overscroll rubber-band showing wrong background */
+html.dark  { background: #1a1a1a; }
+html.light { background: #f5f7fa; }
+
 /* ─── PROJECTS PAGE ─── */
 main {
     max-width: 1000px;
