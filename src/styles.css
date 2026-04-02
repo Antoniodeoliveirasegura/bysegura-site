@@ -321,6 +321,9 @@ body.dark .touch-bar button {
     body {
         padding-bottom: 70px;
     }
+    #bgCanvas {
+        display: none;
+    }
 }
 
 /* ─── BUTTON HOVER EFFECTS ─── */
