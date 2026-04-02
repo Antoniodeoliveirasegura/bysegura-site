@@ -5,7 +5,7 @@ const ThemeContext = createContext();
 export function ThemeProvider({ children }) {
   const [isDark, setIsDark] = useState(() => {
     const saved = localStorage.getItem('theme');
-    const dark = saved !== null ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const dark = saved !== null ? saved === 'dark' : true;
     // Apply synchronously so body class is set before first render
     document.documentElement.classList.toggle('dark', dark);
     document.documentElement.classList.toggle('light', !dark);
@@ -30,14 +30,7 @@ export function ThemeProvider({ children }) {
     localStorage.setItem('animationEnabled', animationEnabled.toString());
   }, [animationEnabled]);
 
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-color-scheme: dark)');
-    const handler = e => setIsDark(e.matches);
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
-  }, []);
-
-  const toggleTheme = () => setIsDark(d => !d);
+const toggleTheme = () => setIsDark(d => !d);
   const toggleAnimation = () => setAnimationEnabled(a => !a);
 
   return (
