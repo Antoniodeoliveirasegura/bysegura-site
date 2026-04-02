@@ -1,85 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <link rel="icon" type="image/png" href="/assets/icon-as.png">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antonio De Oliveira Segura</title>
-  <script>
-    // Redirect /index.html to / for clean URLs
-    if (window.location.pathname === '/index.html') {
-      window.history.replaceState(null, null, '/');
-    }
-  </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-  <canvas id="bgCanvas"></canvas>
-  <div class="header">
-    <h1 class="antonio">antonio</h1>
-    <h2>de oliveira segura</h2>
-    <p>engineer, researcher & data analyst</p>
-
-    <div class="achievements">
-      <h2>things i'm proud of</h2>
-      <ul>
-        <li>pursuing degree in Computer Engineering at Purdue University</li>
-        <li>conducted research on energy harvesting & IoT security with real-world impact</li>
-        <li>researched extending life of electrodes</li>
-        <li>study abroad in Korea: exploring microchips & the semiconductor industry</li>
-        <li>hands-on with embedded systems, web development, and prototyping hardware-software solutions</li>
-        <li>published and maintained open-source projects & personal portfolio</li>
-        <li>learning, and delivering value wherever I go</li>
-      </ul>
-    </div>
-
-    <div class="achievements">
-      <h2>things i want to do next</h2>
-      <ul>
-        <li>gain life experience by working in diverse environments like startups to medium and large companies</li>
-        <li>expand my expertise in low-power embedded systems and machine learning at the edge</li>
-        <li>explore entrepreneurship by building meaningful, impactful tools and products</li>
-        <li>work on projects at the intersection of finance, technology, and sustainability</li>
-        <li>continue to learn, and grow through open-source and educational initiatives</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="touch-bar">
-    <button title="Home"><i class="fas fa-home"></i></button>
-    <button title="Ideas"><i class="fas fa-lightbulb"></i></button>
-    <button title="Music"><i class="fas fa-headphones"></i></button>
-    <button title="GitHub"><i class="fab fa-github"></i></button>
-    <button title="Contact"><i class="fas fa-envelope"></i></button>
-    <button title="Resume"><i class="fas fa-scroll"></i></button>
-    <button title="Twitch"><i class="fab fa-twitch"></i></button>
-    <hr>
-    <button id="toggle-animation" class="off" title="Toggle Cursor Animation"><i class="fas fa-mouse-pointer"></i></button>
-    <button id="toggle-theme" title="Toggle Theme"><i class="fas fa-moon"></i></button>
-    </div>
-
-  <div class="contact-section" id="contactSection">
-    <h2>get in touch</h2>
-    <form action="https://formspree.io/f/mzzgyjzk" method="POST">
-      <input type="text" name="name" placeholder="Your name" required />
-      <input type="email" name="email" placeholder="Your email" required />
-      <textarea name="message" placeholder="Your message..." required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
-
-  <footer>
-    &copy; 2025 Antonio De Oliveira Segura · bysegura.com
-  </footer>
-  <script src="fade.js"></script>
-  <script src="script.js"></script>
-</body>
-
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/icon-as.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Antonio De Oliveira Segura</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+      // GitHub Pages SPA redirect handling
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          })
+          window.history.replaceState(null, null,
+            decoded[0] + (decoded[1] ? '?' + decoded[1] : '') + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
