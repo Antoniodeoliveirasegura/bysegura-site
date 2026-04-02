@@ -10,12 +10,6 @@ export function BackgroundCanvas() {
   useEffect(() => { isDarkRef.current = isDark; }, [isDark]);
   useEffect(() => { animRef.current = animationEnabled; }, [animationEnabled]);
 
-  // Re-init particles when theme changes (signal via a ref)
-  const reinitRef = useRef(false);
-  useEffect(() => {
-    reinitRef.current = true;
-  }, [isDark]);
-
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -55,10 +49,13 @@ export function BackgroundCanvas() {
       }
     }
 
+    // Track previous theme to detect changes inside the animation loop
+    let prevIsDark = isDarkRef.current;
+
     function animate() {
-      // Re-init particles if theme just changed
-      if (reinitRef.current) {
-        reinitRef.current = false;
+      // Re-init particles whenever theme changes
+      if (isDarkRef.current !== prevIsDark) {
+        prevIsDark = isDarkRef.current;
         if (isDarkRef.current) initStars();
         else initClouds();
       }
