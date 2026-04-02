@@ -13,7 +13,7 @@
       // Apply theme before React loads to prevent white flash
       (function() {
         var saved = localStorage.getItem('theme');
-        var isDark = saved !== null ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = saved !== null ? saved === 'dark' : true;
         document.documentElement.classList.add(isDark ? 'dark' : 'light');
         document.body.classList.add(isDark ? 'dark' : 'light');
       })();
@@ -31,8 +31,8 @@
         }
       }(window.location))
     </script>
-    <script type="module" crossorigin src="/assets/index-DqO0F65e.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Ds8cHNER.css">
+    <script type="module" crossorigin src="/assets/index-BHqMD5FY.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-AXxoQ0aa.css">
   </head>
   <body>
     <div id="root"></div>
