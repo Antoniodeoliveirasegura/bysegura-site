@@ -240,37 +240,12 @@ toggleAnimBtn.addEventListener("click", () => {
   localStorage.setItem("animationEnabled", animationEnabled.toString());
 });
 
-async function checkTwitchStatus() {
-    try {
-        const response = await fetch('https://api.bysegura.com/api/twitch-status');
-        const data = await response.json();
-
-        const twitchButton = document.querySelector('.touch-bar button[title="Twitch"]');
-        if (data.isLive) {
-            twitchButton.style.display = 'block';
-            twitchButton.classList.add('live');
-        } else {
-            twitchButton.style.display = 'none';
-            twitchButton.classList.remove('live');
-        }
-    } catch (error) {
-        console.error('Error checking Twitch status:', error);
-        // Hide button on error
-        const twitchButton = document.querySelector('.touch-bar button[title="Twitch"]');
-        twitchButton.style.display = 'none';
-    }
-}
-
 // Initial mode setup
 if (!document.body.classList.contains('light') && !document.body.classList.contains('dark')) {
     document.body.classList.add('light');
 }
 setMode();
 animate();
-
-// Check Twitch status on page load and then every 5 minutes
-checkTwitchStatus();
-setInterval(checkTwitchStatus, 5 * 60 * 1000); // Check every 5 minutes
 
 // Touch bar button handlers
 const touchBarButtons = document.querySelectorAll('.touch-bar button');
@@ -291,9 +266,6 @@ touchBarButtons.forEach((button, index) => {
                 break;
             case 'GitHub':
                 window.open('https://github.com/antoniodeoliveirasegura', '_blank');
-                break;
-            case 'Twitch':
-                window.open('https://www.twitch.tv/technoant', '_blank');
                 break;
             case 'Contact':
                 contactSection.scrollIntoView({ behavior: 'smooth' });
