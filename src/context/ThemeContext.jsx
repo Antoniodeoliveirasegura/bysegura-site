@@ -5,8 +5,11 @@ const ThemeContext = createContext();
 export function ThemeProvider({ children }) {
   const [isDark, setIsDark] = useState(() => {
     const saved = localStorage.getItem('theme');
-    if (saved !== null) return saved === 'dark';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const dark = saved !== null ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Apply synchronously so body class is set before first render
+    document.body.classList.toggle('dark', dark);
+    document.body.classList.toggle('light', !dark);
+    return dark;
   });
 
   const [animationEnabled, setAnimationEnabled] = useState(() => {
