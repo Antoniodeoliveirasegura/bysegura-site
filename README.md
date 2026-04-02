@@ -1,12 +1,11 @@
 # bysegura.com
 
-Personal portfolio site for Antonio De Oliveira Segura — built with React + Vite, deployed via GitHub Pages.
+Personal portfolio site for Antonio De Oliveira Segura — static HTML/CSS/JS, deployed via GitHub Pages.
 
 ## Stack
 
-- **React 18** + **React Router** — SPA with `/` and `/projects` routes
-- **Vite** — dev server and build tool
-- **GitHub Actions** — auto-deploys to `gh-pages` branch on every push to `main`
+- **HTML / CSS / JS** — no frameworks, no build step
+- **GitHub Pages** — auto-serves `main` branch at [bysegura.com](https://bysegura.com)
 
 ## Features
 
@@ -15,21 +14,23 @@ Personal portfolio site for Antonio De Oliveira Segura — built with React + Vi
 - Fixed touch-bar navigation (vertical on desktop, horizontal dock on mobile)
 - Twitch live status indicator via `api.bysegura.com`
 - Contact form via Formspree
+- `/projects` page
 - Responsive for desktop, tablet, and mobile
 
-## Dev
+## Structure
 
-```bash
-npm install
-npm run dev
+```
+index.html        — main portfolio page
+projects/
+  index.html      — projects page
+styles.css        — all styles
+script.js         — main JS (theme, canvas, Twitch status, etc.)
+fade.js           — fade-in animation
+assets/           — icons and images
+resume.pdf        — downloadable resume
+CNAME             — custom domain (bysegura.com)
 ```
 
 ## Deploy
 
-Pushing to `main` triggers the GitHub Action which builds and pushes to the `gh-pages` branch automatically.
-
-To deploy manually:
-
-```bash
-npm run deploy
-```
+Just push to `main`. GitHub Pages serves it automatically.
