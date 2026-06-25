@@ -12,6 +12,18 @@
       window.history.replaceState(null, null, '/');
     }
   </script>
+  <script>
+    // Apply saved theme before first paint so navigation doesn't flash
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        var dark = t === null
+          ? window.matchMedia("(prefers-color-scheme: dark)").matches
+          : t === "dark";
+        document.documentElement.classList.add(dark ? "dark" : "light");
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +32,7 @@
 </head>
 
 <body>
+  <script>document.body.classList.add(document.documentElement.classList.contains("dark") ? "dark" : "light");</script>
   <canvas id="bgCanvas"></canvas>
   <div class="header">
     <h1 class="antonio">antonio</h1>
@@ -53,7 +66,7 @@
 
   <div class="touch-bar">
     <button title="Home"><i class="fas fa-home"></i></button>
-    <button title="Ideas"><i class="fas fa-lightbulb"></i></button>
+    <button title="Projects"><i class="fas fa-folder-open"></i></button>
     <button title="Music"><i class="fas fa-headphones"></i></button>
     <button title="GitHub"><i class="fab fa-github"></i></button>
     <button title="Contact"><i class="fas fa-envelope"></i></button>

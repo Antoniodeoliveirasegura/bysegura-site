@@ -5,6 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Antonio • Projects</title>
+    <script>
+      // Apply saved theme before first paint so navigation doesn't flash
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          var dark = t === null
+            ? window.matchMedia("(prefers-color-scheme: dark)").matches
+            : t === "dark";
+          document.documentElement.classList.add(dark ? "dark" : "light");
+        } catch (e) {}
+      })();
+    </script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -57,6 +69,18 @@
       body.dark {
         background: #1a1a1a;
         color: #eee;
+      }
+
+      /* Smooth cross-fade between pages where supported; other browsers just navigate */
+      @view-transition {
+        navigation: auto;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+          animation: none;
+        }
       }
 
       /* MAIN CONTENT */
@@ -408,7 +432,8 @@
     </style>
   </head>
 
-  <body class="light">
+  <body>
+    <script>document.body.classList.add(document.documentElement.classList.contains("dark") ? "dark" : "light");</script>
     <canvas id="bgCanvas"></canvas>
 
     <main>
@@ -423,6 +448,160 @@
         <div class="project-grid">
           <div class="project">
             <div class="project-header">
+              <h3 class="project-title">World Cup 2026 Forecast Model</h3>
+              <span class="project-date">Jun 2026 - Present</span>
+            </div>
+            <div class="project-description">
+              A from scratch statistical model forecasting the 2026 FIFA World
+              Cup. It combines a Dixon Coles scoreline model with a squad value
+              prior and a Monte Carlo tournament simulator. Out of sample
+              accuracy is comparable to bookmakers.
+            </div>
+            <a
+              href="https://github.com/Antoniodeoliveirasegura/wc2026"
+              target="_blank"
+              class="project-link"
+            >
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          <div class="project">
+            <div class="project-header">
+              <h3 class="project-title">BoilerIndy</h3>
+              <span class="project-date">Mar 2026 - Present</span>
+            </div>
+            <div class="project-description">
+              A campus services web app for Purdue University Indianapolis. A
+              Node/Express backend with a React + Vite frontend, integrating
+              Supabase, Purdue auth, campus schedules, dining, transit, a
+              community board, and an AI campus assistant.
+            </div>
+            <a
+              href="https://github.com/Antoniodeoliveirasegura/boilerindy"
+              target="_blank"
+              class="project-link"
+            >
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          <div class="project">
+            <div class="project-header">
+              <h3 class="project-title">Fintech AI Assistant</h3>
+              <span class="project-date">May 2026</span>
+            </div>
+            <div class="project-description">
+              Mobile first Flutter app that simulates a fintech loan dashboard
+              with payment history, protected routing, and a local AI assistant.
+              Built with Riverpod and GoRouter.
+            </div>
+            <a
+              href="https://github.com/Antoniodeoliveirasegura/Fintech-AI-Assistant"
+              target="_blank"
+              class="project-link"
+            >
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          <div class="project">
+            <div class="project-header">
+              <h3 class="project-title">Panini Sticker Collector App</h3>
+              <span class="project-date">Apr 2026</span>
+            </div>
+            <div class="project-description">
+              An iOS app to scan and track your Panini sticker collection, built
+              with SwiftUI and AVFoundation. Live camera capture, review &amp;
+              confirm, a collection grid, and local persistent storage.
+            </div>
+            <a
+              href="https://github.com/Antoniodeoliveirasegura/StickerScanner"
+              target="_blank"
+              class="project-link"
+            >
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          <div class="project">
+            <div class="project-header">
+              <h3 class="project-title">Football Data Analyzer</h3>
+              <span class="project-date">Apr 2026</span>
+            </div>
+            <div class="project-description">
+              Premier League performance analysis and season outcome prediction
+              using Gradient Boosting, with FotMob data via soccerdata. Predicts
+              champion, top four, mid table, or relegation, using SMOTE to handle
+              class imbalance.
+            </div>
+            <a
+              href="https://github.com/Antoniodeoliveirasegura/footballData"
+              target="_blank"
+              class="project-link"
+            >
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          <div class="project">
+            <div class="project-header">
+              <h3 class="project-title">EPL Predictor</h3>
+              <span class="project-date">Apr 2026</span>
+            </div>
+            <div class="project-description">
+              Predicts English Premier League results with a neural network
+              ensemble combined with Elo ratings and Poisson modeling. Supports
+              backtesting and forecasting upcoming fixtures.
+            </div>
+            <a
+              href="https://github.com/Antoniodeoliveirasegura/epl-predict"
+              target="_blank"
+              class="project-link"
+            >
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          <div class="project">
+            <div class="project-header">
+              <h3 class="project-title">Brasileirão Predictor</h3>
+              <span class="project-date">Apr 2026</span>
+            </div>
+            <div class="project-description">
+              Match outcome predictions for Brazil's Série A using Elo ratings
+              and Poisson goal modeling, trained on historical data from 2003
+              onward.
+            </div>
+            <a
+              href="https://github.com/Antoniodeoliveirasegura/brasileirao"
+              target="_blank"
+              class="project-link"
+            >
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          <div class="project">
+            <div class="project-header">
+              <h3 class="project-title">MLS Predictor</h3>
+              <span class="project-date">Apr 2026</span>
+            </div>
+            <div class="project-description">
+              A web scraper and match prediction tool for Major League Soccer,
+              pulling fixtures and per match player statistics from FotMob.
+            </div>
+            <a
+              href="https://github.com/Antoniodeoliveirasegura/mls-predict"
+              target="_blank"
+              class="project-link"
+            >
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          <div class="project">
+            <div class="project-header">
               <h3 class="project-title">Ubuntu Server Projects</h3>
               <span class="project-date">Jun 2025 - Present</span>
             </div>
@@ -435,15 +614,60 @@
 
           <div class="project">
             <div class="project-header">
-              <h3 class="project-title">Panini Sticker Collector App</h3>
-              <span class="project-date">Jun 2025 - Present</span>
+              <h3 class="project-title">Drug Alternatives API</h3>
+              <span class="project-date">Sep 2025</span>
             </div>
             <div class="project-description">
-              A mobile app to help collectors track their Panini sticker
-              collections. Features include wishlist management, trading
-              opportunities, and collection statistics. Being developed in
-              Swift.
+              A FastAPI service that finds generic and brand alternatives for
+              medications using the National Library of Medicine's RxNav API.
+              Smart drug name matching, strength aware search, and NDC code
+              lookup.
             </div>
+            <a
+              href="https://github.com/Antoniodeoliveirasegura/AlternativeMedicine"
+              target="_blank"
+              class="project-link"
+            >
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          <div class="project">
+            <div class="project-header">
+              <h3 class="project-title">Spotify Listening Pattern Analyzer</h3>
+              <span class="project-date">Mar 2025</span>
+            </div>
+            <div class="project-description">
+              Python tool that analyzes Spotify listening history to identify
+              patterns, favorite genres, and listening habits. Generates
+              personalized music insights and statistics.
+            </div>
+            <a
+              href="https://github.com/Antoniodeoliveirasegura/Spotify-Listening-Pattern-Analyzer"
+              target="_blank"
+              class="project-link"
+            >
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          <div class="project">
+            <div class="project-header">
+              <h3 class="project-title">Sustainability Browser Extension</h3>
+              <span class="project-date">May 2025 - Jun 2025</span>
+            </div>
+            <div class="project-description">
+              Browser extension that tracks and suggests eco friendly
+              alternatives while browsing. Shows carbon impact of websites and
+              promotes sustainable online habits.
+            </div>
+            <a
+              href="https://github.com/Antoniodeoliveirasegura/sustainabilityExtension"
+              target="_blank"
+              class="project-link"
+            >
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
           </div>
 
           <div class="project">
@@ -452,7 +676,7 @@
               <span class="project-date">Mar 2025 - Present</span>
             </div>
             <div class="project-description">
-              An AI-powered Twitch bot that responds to voice commands for
+              An AI powered Twitch bot that responds to voice commands for
               moderation tasks. Uses speech recognition and natural language
               processing to manage chat efficiently.
             </div>
@@ -473,48 +697,10 @@
             <div class="project-description">
               RESTful API providing sustainability metrics and environmental
               data. Includes carbon footprint calculations, renewable energy
-              statistics, and eco-friendly recommendations.
+              statistics, and eco friendly recommendations.
             </div>
             <a
               href="https://github.com/Antoniodeoliveirasegura/sustainability-api"
-              target="_blank"
-              class="project-link"
-            >
-              <i class="fab fa-github"></i> View on GitHub
-            </a>
-          </div>
-
-          <div class="project">
-            <div class="project-header">
-              <h3 class="project-title">Sustainability Browser Extension</h3>
-              <span class="project-date">May 2025 - Jun 2025</span>
-            </div>
-            <div class="project-description">
-              Browser extension that tracks and suggests eco-friendly
-              alternatives while browsing. Shows carbon impact of websites and
-              promotes sustainable online habits.
-            </div>
-            <a
-              href="https://github.com/Antoniodeoliveirasegura/sustainabilityExtension"
-              target="_blank"
-              class="project-link"
-            >
-              <i class="fab fa-github"></i> View on GitHub
-            </a>
-          </div>
-
-          <div class="project">
-            <div class="project-header">
-              <h3 class="project-title">Spotify Listening Pattern Analyzer</h3>
-              <span class="project-date">Mar 2025</span>
-            </div>
-            <div class="project-description">
-              Python tool that analyzes Spotify listening history to identify
-              patterns, favorite genres, and listening habits. Generates
-              personalized music insights and statistics.
-            </div>
-            <a
-              href="https://github.com/Antoniodeoliveirasegura/Spotify-Listening-Pattern-Analyzer"
               target="_blank"
               class="project-link"
             >
@@ -550,7 +736,7 @@
             <h3>Audio Amplifier Extension</h3>
             <p>
               Browser extension that amplifies quiet audio and provides
-              full-screen mode for better viewing experience on low-volume
+              full screen mode for better viewing experience on low volume
               content.
             </p>
           </div>
@@ -567,7 +753,7 @@
           <div class="future-idea">
             <h3>Universal File Converter</h3>
             <p>
-              Custom file converter - got tired of converting files using other
+              Custom file converter. Got tired of converting files using other
               websites and having to pay for some after inputting the file.
             </p>
           </div>
@@ -576,7 +762,7 @@
             <h3>Minimalist Sudoku App</h3>
             <p>
               Clean Sudoku app with multiple difficulty levels, hint system, and
-              progress tracking. Clean design focused on pure puzzle-solving
+              progress tracking. Clean design focused on pure puzzle solving
               experience.
             </p>
           </div>

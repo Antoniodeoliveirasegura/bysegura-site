@@ -258,8 +258,12 @@ touchBarButtons.forEach((button, index) => {
             case 'Home':
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 break;
-            case 'Ideas':
-                window.location.href = '/projects';
+            case 'Projects':
+                // ponytail: guard avoids a redundant reload on the projects page,
+                // which loads this same script and has its own scroll-to-top handler
+                if (!window.location.pathname.startsWith('/projects')) {
+                    window.location.href = '/projects';
+                }
                 break;
             case 'Music':
                 window.open('https://open.spotify.com/user/960cigs19p1bbo35a35wiiu4x?si=02f9d763ab844093', '_blank');
