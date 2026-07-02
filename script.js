@@ -214,10 +214,16 @@ function setMode() {
     }
 }
 
-// Hook up theme toggle button - Fixed: use setTheme function consistently
+// Hook up theme toggle button — animate the swap via the View Transitions
+// helper in motion.js (falls back to an instant swap when unsupported).
 toggleBtn.addEventListener("click", () => {
   const nowDark = body.classList.contains("dark");
-  setTheme(!nowDark);
+  const apply = () => setTheme(!nowDark);
+  if (window.animateThemeChange) {
+    window.animateThemeChange(toggleBtn, apply);
+  } else {
+    apply();
+  }
 });
 
 // Hook up cursor animation toggle button - Fixed: save as string

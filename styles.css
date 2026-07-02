@@ -8,20 +8,6 @@ body {
     overflow: auto;
 }
 
-#content {
-    opacity: 1;
-    transition: opacity 0.3s ease;
-}
-
-#content.fade-out {
-    opacity: 0;
-}
-
-#content.fade-in {
-    opacity: 1;
-}
-
-
 /* BACKGROUND CANVAS */
 #bgCanvas {
     position: fixed;
@@ -46,18 +32,6 @@ body.light {
 
 body.dark {
     background: #1a1a1a;
-}
-
-/* Smooth cross-fade between pages where supported; other browsers just navigate */
-@view-transition {
-    navigation: auto;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    ::view-transition-old(root),
-    ::view-transition-new(root) {
-        animation: none;
-    }
 }
 
 .header {

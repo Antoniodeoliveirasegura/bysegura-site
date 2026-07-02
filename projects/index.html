@@ -17,6 +17,20 @@
         } catch (e) {}
       })();
     </script>
+    <script>
+      // Hide the hero pre-paint so motion.js can play the one-time boot reveal.
+      (function () {
+        try {
+          if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches
+              && !sessionStorage.getItem("booted")) {
+            document.documentElement.classList.add("intro");
+            setTimeout(function () {
+              document.documentElement.classList.remove("intro");
+            }, 2500);
+          }
+        } catch (e) {}
+      })();
+    </script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -28,19 +42,6 @@
       rel="stylesheet"
     />
     <style>
-#content {
-        opacity: 1;
-        transition: opacity 0.3s ease;
-      }
-
-      #content.fade-out {
-        opacity: 0;
-      }
-
-      #content.fade-in {
-        opacity: 1;
-      }
-
       body {
         margin: 0;
         padding: 0;
@@ -69,18 +70,6 @@
       body.dark {
         background: #1a1a1a;
         color: #eee;
-      }
-
-      /* Smooth cross-fade between pages where supported; other browsers just navigate */
-      @view-transition {
-        navigation: auto;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        ::view-transition-old(root),
-        ::view-transition-new(root) {
-          animation: none;
-        }
       }
 
       /* MAIN CONTENT */
@@ -167,7 +156,9 @@
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       }
 
-      .project:hover {
+      /* Selector scoped to .project-grid so the hover lift outranks
+         motion.css's .reveal-item.in { transform: none } after a card reveals. */
+      .project-grid .project:hover {
         transform: translateY(-8px) scale(1.02);
         box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
       }
@@ -247,7 +238,8 @@
         background: rgba(51, 153, 255, 0.1);
       }
 
-      .future-idea:hover {
+      /* Scoped to .future-grid to outrank motion.css's reveal end-state (see above). */
+      .future-grid .future-idea:hover {
         transform: translateY(-4px);
         border-color: #3399ff;
       }
@@ -430,6 +422,7 @@
         scroll-behavior: smooth;
       }
     </style>
+    <link rel="stylesheet" href="../motion.css" />
   </head>
 
   <body>
@@ -1048,10 +1041,16 @@
         }
       }
 
-      // Hook up theme toggle button - use setTheme function consistently
+      // Hook up theme toggle button — animate the swap via the View Transitions
+      // helper in motion.js (falls back to an instant swap when unsupported).
       toggleBtn.addEventListener("click", () => {
         const nowDark = body.classList.contains("dark");
-        setTheme(!nowDark);
+        const apply = () => setTheme(!nowDark);
+        if (window.animateThemeChange) {
+          window.animateThemeChange(toggleBtn, apply);
+        } else {
+          apply();
+        }
       });
 
       // Hook up animation toggle button - save as string
@@ -1086,7 +1085,6 @@
       setMode();
       animate();
     </script>
-    <script src="../fade.js"></script>
-    <script src="../script.js"></script>
+    <script src="../motion.js"></script>
   </body>
 </html>
