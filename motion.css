@@ -1,0 +1,116 @@
+/* ─────────────────────────────────────────────────────────────
+   motion.css — shared animation layer for bysegura.com
+   Loaded AFTER styles.css (home) and after the inline <style> (projects),
+   so ties in specificity resolve in favor of these rules.
+   All motion is compositor-only (transform / opacity / clip-path) and
+   fully disabled under prefers-reduced-motion.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  --dur-press: 120ms;   /* button press          */
+  --dur-hover: 260ms;   /* hover settle          */
+  --dur-reveal: 520ms;  /* entrance reveals      */
+  --ease-out: cubic-bezier(.16, 1, .3, 1);        /* expo-out — reveals, page fades */
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1); /* slight overshoot — hovers, icons */
+}
+
+/* ─── PAGE TRANSITIONS (native cross-document) ─── */
+@view-transition { navigation: auto; }
+
+/* Keep the nav rail anchored across page navigations instead of fading with the page */
+.touch-bar { view-transition-name: touch-bar; }
+
+::view-transition-old(root) { animation: vt-fade-out 280ms var(--ease-out) both; }
+::view-transition-new(root) { animation: vt-fade-in  320ms var(--ease-out) both; }
+@keyframes vt-fade-out { to   { opacity: 0; transform: translateY(-8px); } }
+@keyframes vt-fade-in  { from { opacity: 0; transform: translateY(8px); } }
+
+/* Theme swap: circular clip-path wipe expanding from the toggle button.
+   Gated on html.theme-vt so it only applies to theme changes, not page nav. */
+html.theme-vt::view-transition-old(root) { animation: none; }
+html.theme-vt::view-transition-new(root) {
+  animation: theme-circle 480ms var(--ease-out);
+  clip-path: circle(150% at var(--vt-x, 50%) var(--vt-y, 50%));
+}
+@keyframes theme-circle {
+  from { clip-path: circle(0 at var(--vt-x, 50%) var(--vt-y, 50%)); }
+}
+
+/* ─── HERO BOOT REVEAL (once per tab; html.intro set pre-paint in <head>) ─── */
+html.intro .antonio,
+html.intro .header > h2,
+html.intro .header > p,
+html.intro .page-header h1,
+html.intro .page-header p {
+  opacity: 0;
+  transform: translateY(14px);
+}
+html.intro .antonio.in,
+html.intro .header > h2.in,
+html.intro .header > p.in,
+html.intro .page-header h1.in,
+html.intro .page-header p.in {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--dur-reveal) var(--ease-out),
+              transform var(--dur-reveal) var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+
+/* Boot caret line (inserted by motion.js on the home page only) */
+.boot-line {
+  font-family: inherit;
+  font-size: 1rem;
+  opacity: .7;
+  margin: 0 0 10px;
+  white-space: nowrap;
+}
+.boot-caret { display: inline-block; }
+.boot-caret.blink { animation: caret-blink 1s steps(1) infinite; }
+@keyframes caret-blink { 50% { opacity: 0; } }
+
+/* ─── SCROLL REVEAL (below-fold content; class added by motion.js) ─── */
+.reveal-item { opacity: 0; transform: translateY(20px); }
+.reveal-item.in {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--dur-reveal) var(--ease-out),
+              transform var(--dur-reveal) var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 50ms);
+}
+
+/* ─── TOUCH-BAR ICON HOVER (scale + spring; magnetic pull added by motion.js) ─── */
+.touch-bar button { will-change: transform; }
+.touch-bar button:hover {
+  transform: translateY(-3px) scale(1.09);
+  transition: transform var(--dur-hover) var(--ease-spring),
+              background var(--dur-hover) ease;
+}
+.touch-bar button:active {
+  transform: scale(.94);
+  transition: transform var(--dur-press) ease;
+}
+.touch-bar button i { transition: transform var(--dur-hover) var(--ease-spring); }
+.touch-bar button:hover i { transform: scale(1.12); }
+
+/* ─── REDUCED MOTION: disable all of the above ─── */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation: none; }
+
+  .reveal-item,
+  .reveal-item.in,
+  html.intro .antonio,
+  html.intro .header > h2,
+  html.intro .header > p,
+  html.intro .page-header h1,
+  html.intro .page-header p {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .touch-bar button:hover { transform: translateY(-3px); }
+  .touch-bar button:hover i { transform: none; }
+  .boot-caret.blink { animation: none; }
+}

@@ -24,11 +24,28 @@
       } catch (e) {}
     })();
   </script>
+  <script>
+    // Hide the hero pre-paint so motion.js can play the one-time boot reveal.
+    // Only on a fresh tab load and when motion is allowed; the timeout is a
+    // failsafe that reveals the hero even if motion.js never runs.
+    (function () {
+      try {
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            && !sessionStorage.getItem("booted")) {
+          document.documentElement.classList.add("intro");
+          setTimeout(function () {
+            document.documentElement.classList.remove("intro");
+          }, 2500);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="motion.css">
 </head>
 
 <body>
@@ -90,8 +107,8 @@
   <footer>
     &copy; 2026 Antonio De Oliveira Segura · bysegura.com
   </footer>
-  <script src="fade.js"></script>
   <script src="script.js"></script>
+  <script src="motion.js"></script>
 </body>
 
 
