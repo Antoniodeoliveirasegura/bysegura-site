@@ -137,7 +137,7 @@ html.theme-vt::view-transition-new(theme-icon) {
 .form-success .check {
   width: 66px;
   height: 66px;
-  stroke: #2ecc71;
+  stroke: var(--accent);
   stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -164,7 +164,7 @@ html.theme-vt::view-transition-new(theme-icon) {
 .btn:focus-visible,
 .contact-row a:focus-visible,
 .contact-section button:focus-visible {
-  outline: 2px solid #22c55e;
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
