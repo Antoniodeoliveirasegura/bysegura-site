@@ -93,6 +93,71 @@ html.intro .page-header p.in {
 .touch-bar button i { transition: transform var(--dur-hover) var(--ease-spring); }
 .touch-bar button:hover i { transform: scale(1.12); }
 
+/* ─── THEME ICON MORPH (moon ↔ sun rotate through the wipe) ─── */
+/* The name is applied only while a theme wipe is in flight (html.theme-vt),
+   so ordinary page navigations leave the icon in the pinned touch-bar group. */
+html.theme-vt #toggle-theme i { view-transition-name: theme-icon; }
+html.theme-vt::view-transition-old(theme-icon) {
+  animation: theme-icon-out 360ms var(--ease-out) both;
+}
+html.theme-vt::view-transition-new(theme-icon) {
+  animation: theme-icon-in 420ms var(--ease-spring) both;
+}
+@keyframes theme-icon-out { to   { opacity: 0; transform: rotate(-140deg) scale(.3); } }
+@keyframes theme-icon-in  { from { opacity: 0; transform: rotate(140deg)  scale(.3); } }
+
+/* ─── CONTACT FORM: AJAX submit states (home page) ─── */
+.contact-section form { position: relative; }
+.form-status {
+  min-height: 1.2em;
+  margin: 2px 0 0;
+  font-size: .95rem;
+  color: #e5534b;
+  opacity: 0;
+  transition: opacity var(--dur-hover) ease;
+}
+.contact-section form.error .form-status { opacity: 1; }
+.contact-section form.sending button[type="submit"] { opacity: .7; cursor: progress; }
+.contact-section form.error { animation: form-shake 420ms var(--ease-out); }
+@keyframes form-shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(3px); }
+  30%, 50%, 70% { transform: translateX(-6px); }
+  40%, 60% { transform: translateX(6px); }
+}
+.form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 0;
+  animation: reveal-pop var(--dur-reveal) var(--ease-out) both;
+}
+@keyframes reveal-pop { from { opacity: 0; transform: translateY(10px); } }
+.form-success .check {
+  width: 66px;
+  height: 66px;
+  stroke: #2ecc71;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.form-success .check circle {
+  stroke-dasharray: 151;
+  stroke-dashoffset: 151;
+  animation: check-draw 520ms var(--ease-out) forwards;
+}
+.form-success .check path {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: check-draw 340ms var(--ease-out) 400ms forwards;
+}
+@keyframes check-draw { to { stroke-dashoffset: 0; } }
+.form-success span { font-size: 1.15rem; font-weight: 600; }
+
+/* ─── PROJECT CARD TILT (transform set by motion.js on pointermove) ─── */
+.project-grid .project { will-change: transform; }
+
 /* ─── REDUCED MOTION: disable all of the above ─── */
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root),
@@ -113,4 +178,12 @@ html.intro .page-header p.in {
   .touch-bar button:hover { transform: translateY(-3px); }
   .touch-bar button:hover i { transform: none; }
   .boot-caret.blink { animation: none; }
+
+  html.theme-vt::view-transition-old(theme-icon),
+  html.theme-vt::view-transition-new(theme-icon) { animation: none; }
+
+  .contact-section form.error { animation: none; }
+  .form-success { animation: none; }
+  .form-success .check circle,
+  .form-success .check path { animation: none; stroke-dashoffset: 0; }
 }
