@@ -72,6 +72,7 @@
         --accent: #1a1a1a;
         --accent-ink: #ffffff;
         --accent-tint: rgba(0, 0, 0, 0.07);
+        --link: #1a66cc;
       }
 
       body.dark {
@@ -80,6 +81,7 @@
         --accent: #ffffff;
         --accent-ink: #1a1a1a;
         --accent-tint: rgba(255, 255, 255, 0.10);
+        --link: #6cb6ff;
       }
 
       /* MAIN CONTENT */
@@ -160,13 +162,17 @@
         gap: 6px;
       }
 
+      .contact-row a {
+        color: var(--link);
+      }
+
       .contact-row a:hover {
         opacity: 1;
-        color: var(--accent);
+        color: var(--link);
       }
 
       .contact-row i {
-        color: var(--accent);
+        color: var(--link);
         font-size: 0.9rem;
       }
 
@@ -320,7 +326,7 @@
       }
 
       .entry-meta a {
-        color: var(--accent);
+        color: var(--link);
         text-decoration: none;
       }
 
