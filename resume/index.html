@@ -86,19 +86,47 @@
       }
 
       .page-header {
-        text-align: center;
+        text-align: left;
         margin-bottom: 40px;
       }
 
+      .page-header .ph-kicker {
+        color: #22c55e;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        opacity: 0.85;
+        margin-bottom: 12px;
+      }
+
       .page-header h1 {
-        font-size: 3rem;
+        font-size: clamp(2.2rem, 6vw, 3rem);
         font-weight: 700;
         margin: 0;
-        letter-spacing: -0.02em;
-        background: linear-gradient(135deg, #22c55e, #14b8a6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        letter-spacing: -0.03em;
+        line-height: 1.05;
+      }
+
+      .page-header h1 .ph-accent {
+        color: #22c55e;
+      }
+
+      .page-header h1 .ph-cursor {
+        display: inline-block;
+        color: #22c55e;
+        margin-left: 6px;
+        animation: ph-blink 1.1s steps(1) infinite;
+      }
+
+      @keyframes ph-blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .page-header h1 .ph-cursor {
+          animation: none;
+        }
       }
 
       .page-header .subtitle {
@@ -110,7 +138,7 @@
       .contact-row {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 8px 18px;
         margin-top: 18px;
         font-size: 0.92rem;
@@ -139,7 +167,7 @@
       .resume-actions {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 12px;
         margin-top: 26px;
       }
@@ -507,7 +535,8 @@
 
     <main>
       <div class="page-header">
-        <h1>Resume</h1>
+        <div class="ph-kicker">~/resume</div>
+        <h1><span class="ph-accent">&gt;</span> resume<span class="ph-cursor" aria-hidden="true">▋</span></h1>
         <p class="subtitle">Antonio Cassio De Oliveira Segura</p>
         <div class="contact-row">
           <span><i class="fas fa-location-dot"></i> Miami, FL 33156</span>
