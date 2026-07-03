@@ -16,3 +16,7 @@ node_modules/
 
 # Build output
 dist/
+# Agent tooling / skills (local, not part of the site)
+.agents/
+.claude/
+skills-lock.json

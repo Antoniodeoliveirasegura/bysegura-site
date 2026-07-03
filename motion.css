@@ -158,6 +158,16 @@ html.theme-vt::view-transition-new(theme-icon) {
 /* ─── PROJECT CARD TILT (transform set by motion.js on pointermove) ─── */
 .project-grid .project { will-change: transform; }
 
+/* ─── FOCUS-VISIBLE (keyboard) — parity with hover, uses the accent ─── */
+.touch-bar button:focus-visible,
+.project-link:focus-visible,
+.btn:focus-visible,
+.contact-row a:focus-visible,
+.contact-section button:focus-visible {
+  outline: 2px solid #22c55e;
+  outline-offset: 3px;
+}
+
 /* ─── REDUCED MOTION: disable all of the above ─── */
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root),

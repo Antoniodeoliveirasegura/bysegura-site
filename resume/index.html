@@ -7,7 +7,7 @@
     <title>Antonio • Resume</title>
     <meta
       name="description"
-      content="Resume of Antonio Cassio De Oliveira Segura — Computer Engineering @ Purdue, software engineer, researcher & data analyst."
+      content="Resume of Antonio Cassio De Oliveira Segura - Computer Engineering @ Purdue, software engineer, researcher & data analyst."
     />
     <script>
       // Apply saved theme before first paint so navigation doesn't flash
@@ -562,7 +562,7 @@
           <div class="entry">
             <div class="entry-top">
               <h3 class="entry-title">Purdue University, College of Engineering</h3>
-              <span class="entry-date">2024 – 2028</span>
+              <span class="entry-date">2024 - 2028</span>
             </div>
             <div class="entry-sub">
               <span class="entry-role">Bachelor of Science, Computer Engineering</span>
@@ -585,7 +585,7 @@
           <div class="entry">
             <div class="entry-top">
               <h3 class="entry-title">OneBlinc (BlincAdvance)</h3>
-              <span class="entry-date">Jun 2026 – Present</span>
+              <span class="entry-date">Jun 2026 - Present</span>
             </div>
             <div class="entry-sub">
               <span class="entry-role">Software Engineer Intern</span>
@@ -614,7 +614,7 @@
           <div class="entry">
             <div class="entry-top">
               <h3 class="entry-title">The Data Mine · Purdue University</h3>
-              <span class="entry-date">Aug 2025 – Dec 2025</span>
+              <span class="entry-date">Aug 2025 - Dec 2025</span>
             </div>
             <div class="entry-sub">
               <span class="entry-role">Undergraduate Data Science Researcher</span>
@@ -637,7 +637,7 @@
           <div class="entry">
             <div class="entry-top">
               <h3 class="entry-title">Purdue University College of Engineering</h3>
-              <span class="entry-date">Aug 2025 – May 2026</span>
+              <span class="entry-date">Aug 2025 - May 2026</span>
             </div>
             <div class="entry-sub">
               <span class="entry-role">Undergraduate Teaching Assistant, ENGR 13300</span>
@@ -657,7 +657,7 @@
           <div class="entry">
             <div class="entry-top">
               <h3 class="entry-title">Vertically Integrated Projects (VIP) · Allegion</h3>
-              <span class="entry-date">Aug 2024 – May 2025</span>
+              <span class="entry-date">Aug 2024 - May 2025</span>
             </div>
             <div class="entry-sub">
               <span class="entry-role">Undergraduate Researcher</span>
@@ -677,7 +677,7 @@
           <div class="entry">
             <div class="entry-top">
               <h3 class="entry-title">Weldon School of Biomedical Engineering · Purdue</h3>
-              <span class="entry-date">Jan 2025 – May 2025</span>
+              <span class="entry-date">Jan 2025 - May 2025</span>
             </div>
             <div class="entry-sub">
               <span class="entry-role">Undergraduate Researcher</span>
@@ -701,7 +701,7 @@
           <div class="entry">
             <div class="entry-top">
               <h3 class="entry-title">BoilerIndy</h3>
-              <span class="entry-date">Mar 2026 – Present</span>
+              <span class="entry-date">Mar 2026 - Present</span>
             </div>
             <div class="entry-meta">
               Full-stack campus platform · React, Vite, Node.js/Express, Supabase
@@ -726,7 +726,7 @@
           <div class="entry">
             <div class="entry-top">
               <h3 class="entry-title">WC2026 World Cup Forecast</h3>
-              <span class="entry-date">Jun 2026 – Present</span>
+              <span class="entry-date">Jun 2026 - Present</span>
             </div>
             <div class="entry-meta">
               Statistical match &amp; tournament model · Python ·
@@ -751,7 +751,6 @@
           <div class="entry">
             <div class="entry-top">
               <h3 class="entry-title">bysegura.com</h3>
-              <span class="entry-date"></span>
             </div>
             <div class="entry-meta">
               Personal portfolio site · HTML / CSS / JavaScript, GitHub Pages ·
@@ -832,6 +831,7 @@
       const toggleBtn = document.getElementById("toggle-theme");
       const toggleIcon = toggleBtn.querySelector("i");
       const toggleAnimBtn = document.getElementById("toggle-animation");
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       // Animation toggle state - starts as OFF
       let animationEnabled = false;
@@ -919,8 +919,8 @@
           stars.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.1,
-            vy: (Math.random() - 0.5) * 0.1,
+            vx: (prefersReducedMotion ? 0 : (Math.random() - 0.5) * 0.1),
+            vy: (prefersReducedMotion ? 0 : (Math.random() - 0.5) * 0.1),
           });
         }
       }
@@ -931,8 +931,8 @@
           clouds.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.2,
-            vy: (Math.random() - 0.5) * 0.1,
+            vx: (prefersReducedMotion ? 0 : (Math.random() - 0.5) * 0.2),
+            vy: (prefersReducedMotion ? 0 : (Math.random() - 0.5) * 0.1),
             size: 30 + Math.random() * 40,
           });
         }
