@@ -281,7 +281,7 @@ touchBarButtons.forEach((button, index) => {
                 contactSection.scrollIntoView({ behavior: 'smooth' });
                 break;
             case 'Resume':
-                window.location.href = 'resume.pdf';
+                window.location.href = '/resume/';
                 break;
             case 'Toggle Cursor Animation':
                 break;
