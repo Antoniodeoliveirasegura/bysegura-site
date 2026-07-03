@@ -28,7 +28,7 @@ body {
 
 /* Terminal kicker above the hero, matching the projects/resume pages */
 .header .ph-kicker {
-    color: #22c55e;
+    color: var(--accent);
     font-size: 0.9rem;
     letter-spacing: 0.05em;
     opacity: 0.85;
@@ -37,10 +37,16 @@ body {
 
 body.light {
     background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+    --accent: #1a1a1a;
+    --accent-ink: #ffffff;
+    --accent-tint: rgba(0, 0, 0, 0.07);
 }
 
 body.dark {
     background: #1a1a1a;
+    --accent: #ffffff;
+    --accent-ink: #1a1a1a;
+    --accent-tint: rgba(255, 255, 255, 0.10);
 }
 
 .header {
@@ -160,7 +166,7 @@ body.dark .contact-section textarea {
 .contact-section input:focus,
 .contact-section textarea:focus {
     outline: none;
-    border-color: #22c55e;
+    border-color: var(--accent);
 }
 
 .contact-section textarea {
@@ -169,8 +175,8 @@ body.dark .contact-section textarea {
 }
 
 .contact-section button {
-    background-color: #16a34a;
-    color: white;
+    background-color: var(--accent);
+    color: var(--accent-ink);
     border: none;
     padding: 1rem 2rem;
     border-radius: 8px;
@@ -178,14 +184,14 @@ body.dark .contact-section textarea {
     font-weight: 600;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     align-self: center;
 }
 
 .contact-section button:hover {
-    background-color: #15803d;
+    background-color: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(34, 197, 94, 0.4);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 @media (max-width: 768px) {
