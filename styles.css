@@ -26,6 +26,15 @@ body {
     margin: -10px;
 }
 
+/* Terminal kicker above the hero, matching the projects/resume pages */
+.header .ph-kicker {
+    color: #22c55e;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    opacity: 0.85;
+    margin: 0 0 28px;
+}
+
 body.light {
     background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
 }

@@ -4,6 +4,7 @@ const toggleBtn = document.getElementById("toggle-theme");
 const toggleIcon = toggleBtn.querySelector("i");
 const contactSection = document.getElementById("contactSection");
 const toggleAnimBtn = document.getElementById("toggle-animation");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // Animation toggle state - starts as OFF
 let animationEnabled = false;
@@ -98,8 +99,8 @@ function initStars() {
         stars.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.1,
-            vy: (Math.random() - 0.5) * 0.1
+            vx: (prefersReducedMotion ? 0 : (Math.random() - 0.5) * 0.1),
+            vy: (prefersReducedMotion ? 0 : (Math.random() - 0.5) * 0.1)
         });
     }
 }
@@ -111,8 +112,8 @@ function initClouds() {
         clouds.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.2,
-            vy: (Math.random() - 0.5) * 0.1,
+            vx: (prefersReducedMotion ? 0 : (Math.random() - 0.5) * 0.2),
+            vy: (prefersReducedMotion ? 0 : (Math.random() - 0.5) * 0.1),
             size: 30 + Math.random() * 40
         });
     }
