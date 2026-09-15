@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 · bysegura.com</title>
+  <meta name="theme-color" content="#0b0c0f">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="/assets/icon-as.png">
+  <script>
+    // Theme + motion flags before first paint. If site.js never loads, the
+    // timeout drops the flags so no content stays hidden.
+    (function (d) {
+      var c = d.classList;
+      c.add("js");
+      try {
+        var t = localStorage.getItem("theme");
+        if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        d.setAttribute("data-theme", t);
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches && !sessionStorage.getItem("booted")) c.add("intro");
+      } catch (e) {}
+      setTimeout(function () { if (!window.__site) c.remove("js", "intro"); }, 2500);
+    })(document.documentElement);
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">skip to content</a>
+  <canvas id="bg" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><span class="dim">~/</span>antonio<span class="caret" aria-hidden="true"></span></a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-home" href="/">home</a>
+        <a href="/projects/">projects</a>
+        <a href="/resume/">resume</a>
+        <a href="/#contact">contact</a>
+        <button class="icon-btn theme-toggle" type="button" aria-label="Toggle light and dark theme">
+          <svg class="icon sun" aria-hidden="true"><use href="/assets/icons.svg#sun"/></svg>
+          <svg class="icon moon" aria-hidden="true"><use href="/assets/icons.svg#moon"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head wrap">
+      <p class="prompt" aria-hidden="true"><span class="path">~/</span> $ <span class="cmd">cd ./this-page</span></p>
+      <div class="terminal" data-boot>
+        <p><span class="err">bash: cd: ./this-page: No such file or directory</span></p>
+        <p>exit 404</p>
+      </div>
+      <h1 data-boot>page not found<span class="caret" aria-hidden="true"></span></h1>
+      <p data-boot>That page moved or never existed. Try one of these instead.</p>
+      <div class="actions" data-boot style="margin-top:28px">
+        <a class="btn btn-primary" href="/">cd ~ <svg class="icon icon-arrow" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+        <a class="btn" href="/projects/">projects</a>
+        <a class="btn" href="/resume/">resume</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>&copy; 2026 Antonio De Oliveira Segura</span>
+      <span>hand-built, no frameworks · <a href="https://github.com/Antoniodeoliveirasegura/bysegura-site" target="_blank" rel="noopener">source</a></span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,116 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
-  <link rel="icon" type="image/png" href="/assets/icon-as.png">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antonio De Oliveira Segura</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Antonio De Oliveira Segura · Software Engineer</title>
+  <meta name="description" content="Antonio De Oliveira Segura: software engineer and Computer Engineering student at Purdue building full-stack products, forecasting models, and embedded prototypes.">
+  <meta name="theme-color" content="#0b0c0f">
+  <link rel="canonical" href="https://bysegura.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="bysegura.com">
+  <meta property="og:title" content="Antonio De Oliveira Segura · Software Engineer">
+  <meta property="og:description" content="Software engineer and Computer Engineering student at Purdue. Projects, experience, and resume.">
+  <meta property="og:url" content="https://bysegura.com/">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" href="/assets/icon-as.png">
   <script>
-    // Redirect /index.html to / for clean URLs
-    if (window.location.pathname === '/index.html') {
-      window.history.replaceState(null, null, '/');
-    }
-  </script>
-  <script>
-    // Apply saved theme before first paint so navigation doesn't flash
-    (function () {
+    // Theme + motion flags before first paint. If site.js never loads, the
+    // timeout drops the flags so no content stays hidden.
+    (function (d) {
+      var c = d.classList;
+      c.add("js");
       try {
         var t = localStorage.getItem("theme");
-        var dark = t === null
-          ? window.matchMedia("(prefers-color-scheme: dark)").matches
-          : t === "dark";
-        document.documentElement.classList.add(dark ? "dark" : "light");
+        if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        d.setAttribute("data-theme", t);
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches && !sessionStorage.getItem("booted")) c.add("intro");
       } catch (e) {}
-    })();
+      setTimeout(function () { if (!window.__site) c.remove("js", "intro"); }, 2500);
+    })(document.documentElement);
   </script>
-  <script>
-    // Hide the hero pre-paint so motion.js can play the one-time boot reveal.
-    // Only on a fresh tab load and when motion is allowed; the timeout is a
-    // failsafe that reveals the hero even if motion.js never runs.
-    (function () {
-      try {
-        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches
-            && !sessionStorage.getItem("booted")) {
-          document.documentElement.classList.add("intro");
-          setTimeout(function () {
-            document.documentElement.classList.remove("intro");
-          }, 2500);
-        }
-      } catch (e) {}
-    })();
-  </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" defer></script>
 </head>
 
 <body>
-  <script>document.body.classList.add(document.documentElement.classList.contains("dark") ? "dark" : "light");</script>
-  <canvas id="bgCanvas"></canvas>
-  <div class="header">
-    <div class="ph-kicker">~/home</div>
-    <h1 class="antonio">antonio</h1>
-    <h2>de oliveira segura</h2>
-    <p>engineer, researcher & data analyst</p>
+  <a class="skip-link" href="#main">skip to content</a>
+  <canvas id="bg" aria-hidden="true"></canvas>
 
-    <div class="achievements">
-      <h2>things i'm proud of</h2>
-      <ul>
-        <li>software engineer intern at OneBlinc, shipping serverless AWS handlers, Django/DRF, and Flutter to production</li>
-        <li>pursuing a B.S. in Computer Engineering at Purdue University</li>
-        <li>data science researcher at The Data Mine, surfacing failure patterns in vehicle telematics with Python & pandas</li>
-        <li>undergraduate teaching assistant for ENGR 13300</li>
-        <li>researched energy harvesting & IoT security prototypes (VIP · Allegion)</li>
-        <li>researched PEDOT:PSS-MXene neural bioelectrodes at Weldon Biomedical (manuscript in progress)</li>
-        <li>built BoilerIndy, a full-stack campus platform, leading a 3-person team</li>
-        <li>built a World Cup 2026 forecast model on par with betting-market accuracy</li>
-      </ul>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><span class="dim">~/</span>antonio<span class="caret" aria-hidden="true"></span></a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-home" href="/" aria-current="page">home</a>
+        <a href="/projects/">projects</a>
+        <a href="/resume/">resume</a>
+        <a href="#contact">contact</a>
+        <button class="icon-btn theme-toggle" type="button" aria-label="Toggle light and dark theme">
+          <svg class="icon sun" aria-hidden="true"><use href="/assets/icons.svg#sun"/></svg>
+          <svg class="icon moon" aria-hidden="true"><use href="/assets/icons.svg#moon"/></svg>
+        </button>
+      </nav>
     </div>
+  </header>
 
-    <div class="achievements">
-      <h2>things i want to do next</h2>
-      <ul>
-        <li>gain life experience by working in diverse environments like startups to medium and large companies</li>
-        <li>expand my expertise in low-power embedded systems and machine learning at the edge</li>
-        <li>explore entrepreneurship by building meaningful, impactful tools and products</li>
-        <li>work on projects at the intersection of finance, technology, and sustainability</li>
-        <li>continue to learn, and grow through open-source and educational initiatives</li>
-      </ul>
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero wrap">
+      <p class="prompt" aria-hidden="true"><span class="path">~/home</span> $ <span class="cmd" data-type>whoami</span></p>
+      <h1 data-boot data-scramble>antonio<br><span class="dim">de oliveira segura</span></h1>
+      <p class="lede" data-boot>
+        <strong>Software engineer</strong> and Computer Engineering student at <strong>Purdue</strong>.
+        I build full-stack products, statistical forecasting models, and the occasional embedded prototype.
+      </p>
+      <p class="status" data-boot><span class="dot" aria-hidden="true"></span>currently: software engineer intern @ OneBlinc</p>
+      <div class="hero-actions" data-boot>
+        <a class="btn btn-primary" href="/projects/">view projects <svg class="icon icon-arrow" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+        <a class="btn" href="/resume/">resume</a>
+        <div class="socials">
+          <a class="icon-btn" href="https://github.com/antoniodeoliveirasegura" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg></a>
+          <a class="icon-btn" href="https://www.linkedin.com/in/antoniodeoliveirasegura/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#linkedin"/></svg></a>
+          <a class="icon-btn" href="mailto:antoniodeoliveirasegura@gmail.com" aria-label="Email"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#mail"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOW -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title"><span class="idx">01 / now</span>what i'm up to</h2>
+        </div>
+        <div class="grid-3">
+          <article class="panel reveal">
+            <span class="label">work</span>
+            <h3>Software Engineer Intern, OneBlinc</h3>
+            <p>Shipping serverless AWS handlers (Lambda, SQS, CDK), Django/DRF APIs, and Flutter features to production.</p>
+          </article>
+          <article class="panel reveal">
+            <span class="label">study</span>
+            <h3>B.S. Computer Engineering, Purdue</h3>
+            <p>Class of 2028. Previously a data science researcher at The Data Mine and a TA for ENGR 13300.</p>
+          </article>
+          <article class="panel reveal">
+            <span class="label">build</span>
+            <h3>BoilerIndy + WC2026</h3>
+            <p>Leading a 3-person team on a full-stack campus platform, and running a World Cup model on par with betting markets.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED WORK -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title"><span class="idx">02 / work</span>featured projects</h2>
+          <a class="more" href="/projects/">all projects <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+        </div>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-top"><span class="file">wc2026/</span><span>Jun 2026 - now</span></div>
+            <h3>World Cup 2026 Forecast</h3>
+            <p>A from-scratch Dixon-Coles scoreline model with a squad-value prior and a Monte Carlo tournament simulator.</p>
+            <div class="stats"><span><b>0.17</b> out-of-sample RPS</span><span><b>48</b>-team sim</span></div>
+            <ul class="tags"><li>Python</li><li>Dixon-Coles</li><li>Elo</li><li>Monte Carlo</li></ul>
+            <div class="card-links">
+              <a class="link" href="https://antoniodeoliveirasegura.github.io/wc2026/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-right"/></svg>live site</a>
+              <a class="link" href="https://github.com/Antoniodeoliveirasegura/wc2026" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>source</a>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card-top"><span class="file">boilerindy/</span><span>Mar 2026 - now</span></div>
+            <h3>BoilerIndy</h3>
+            <p>Campus services platform for Purdue Indianapolis: schedules, dining, transit, a community board, and an AI assistant.</p>
+            <div class="stats"><span><b>157</b> REST endpoints</span><span><b>28</b> React pages</span></div>
+            <ul class="tags"><li>React</li><li>Node/Express</li><li>Supabase</li><li>Playwright</li></ul>
+            <div class="card-links">
+              <a class="link" href="https://www.boilerindy.app/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-right"/></svg>live site</a>
+              <a class="link" href="https://github.com/Antoniodeoliveirasegura/boilerindy" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>source</a>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card-top"><span class="file">fintech-ai/</span><span>May 2026</span></div>
+            <h3>Fintech AI Assistant</h3>
+            <p>Mobile-first Flutter app that simulates a loan dashboard with payment history, protected routing, and a local AI assistant.</p>
+            <div class="stats"><span><b>Flutter</b> + Riverpod</span><span><b>GoRouter</b> auth guards</span></div>
+            <ul class="tags"><li>Flutter</li><li>Dart</li><li>Riverpod</li><li>GoRouter</li></ul>
+            <div class="card-links">
+              <a class="link" href="https://github.com/Antoniodeoliveirasegura/Fintech-AI-Assistant" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>source</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title"><span class="idx">03 / experience</span>where i've worked</h2>
+          <a class="more" href="/resume/">full resume <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+        </div>
+        <ol class="xp">
+          <li class="reveal">
+            <span class="when">Jun 2026 - now</span>
+            <div>
+              <h3>Software Engineer Intern <span class="at">@ OneBlinc</span></h3>
+              <p>Serverless event handlers on AWS, a unified dispatcher across Django/DRF and Flutter, and CI hardening across 3 production services.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="when">Aug 2025 - May 2026</span>
+            <div>
+              <h3>Undergraduate Teaching Assistant <span class="at">@ Purdue Engineering</span></h3>
+              <p>Led weekly in-class exercises for ENGR 13300 in MATLAB and Python.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="when">Aug 2025 - Dec 2025</span>
+            <div>
+              <h3>Data Science Researcher <span class="at">@ The Data Mine, Purdue</span></h3>
+              <p>Surfaced recurring failure patterns in vehicle telematics data with Python and pandas.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="when">Jan 2025 - May 2025</span>
+            <div>
+              <h3>Undergraduate Researcher <span class="at">@ Weldon School of BME</span></h3>
+              <p>Characterized PEDOT:PSS-MXene neural bioelectrodes (manuscript in progress).</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="when">Aug 2024 - May 2025</span>
+            <div>
+              <h3>Undergraduate Researcher <span class="at">@ VIP · Allegion</span></h3>
+              <p>Embedded C and Python firmware for IoT security prototypes; solar, thermal, and RF energy harvesting research.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title"><span class="idx">04 / next</span>what i want to do next</h2>
+        </div>
+        <ul class="next">
+          <li class="reveal">Work across startups and larger companies to see how great teams ship.</li>
+          <li class="reveal">Go deeper on low-power embedded systems and machine learning at the edge.</li>
+          <li class="reveal">Build meaningful tools and products, and explore entrepreneurship.</li>
+          <li class="reveal">Work where finance, technology, and sustainability meet.</li>
+          <li class="reveal">Keep learning and give back through open-source and education.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="wrap contact">
+        <div class="contact-intro reveal">
+          <h2 class="section-title"><span class="idx">05 / contact</span>get in touch</h2>
+          <p>Hiring, collaborating, or just curious about a project? Send a note and I'll get back to you.</p>
+          <ul class="channels">
+            <li><a href="mailto:antoniodeoliveirasegura@gmail.com"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#mail"/></svg><span class="name">antoniodeoliveirasegura@gmail.com</span><svg class="icon go" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-right"/></svg></a></li>
+            <li><a href="https://www.linkedin.com/in/antoniodeoliveirasegura/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#linkedin"/></svg><span class="name">linkedin</span><svg class="icon go" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-right"/></svg></a></li>
+            <li><a href="https://github.com/antoniodeoliveirasegura" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg><span class="name">github</span><svg class="icon go" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-right"/></svg></a></li>
+            <li><a href="https://open.spotify.com/user/960cigs19p1bbo35a35wiiu4x" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#headphones"/></svg><span class="name">what i'm listening to</span><svg class="icon go" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-right"/></svg></a></li>
+          </ul>
+        </div>
+
+        <form class="form reveal" action="https://formspree.io/f/mzzgyjzk" method="POST">
+          <div class="row-2">
+            <div class="field">
+              <label for="f-name">name</label>
+              <input id="f-name" type="text" name="name" autocomplete="name" placeholder="Ada Lovelace" required>
+            </div>
+            <div class="field">
+              <label for="f-email">email</label>
+              <input id="f-email" type="email" name="email" autocomplete="email" placeholder="ada@example.com" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-msg">message</label>
+            <textarea id="f-msg" name="message" placeholder="What's on your mind?" required></textarea>
+          </div>
+          <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-foot">
+            <p class="form-status" role="alert" aria-live="polite"></p>
+            <button class="btn btn-primary" type="submit">send message <svg class="icon icon-arrow" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>&copy; 2026 Antonio De Oliveira Segura</span>
+      <span>hand-built, no frameworks · <a href="https://github.com/Antoniodeoliveirasegura/bysegura-site" target="_blank" rel="noopener">source</a></span>
     </div>
-  </div>
-
-  <div class="touch-bar">
-    <button title="Home"><i class="fas fa-home"></i></button>
-    <button title="Projects"><i class="fas fa-folder-open"></i></button>
-    <button title="Music"><i class="fas fa-headphones"></i></button>
-    <button title="GitHub"><i class="fab fa-github"></i></button>
-    <button title="Contact"><i class="fas fa-envelope"></i></button>
-    <button title="Resume"><i class="fas fa-scroll"></i></button>
-    <hr>
-    <button id="toggle-animation" class="off" title="Toggle Cursor Animation"><i class="fas fa-mouse-pointer"></i></button>
-    <button id="toggle-theme" title="Toggle Theme"><i class="fas fa-moon"></i></button>
-    </div>
-
-  <div class="contact-section" id="contactSection">
-    <h2>get in touch</h2>
-    <form action="https://formspree.io/f/mzzgyjzk" method="POST">
-      <input type="text" name="name" placeholder="Your name" required />
-      <input type="email" name="email" placeholder="Your email" required />
-      <textarea name="message" placeholder="Your message..." required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
-
-  <footer>
-    &copy; 2026 Antonio De Oliveira Segura · bysegura.com
   </footer>
-  <script src="script.js"></script>
-  <script src="motion.js"></script>
 </body>
-
-
 </html>
