@@ -13,7 +13,7 @@ Personal portfolio site for Antonio De Oliveira Segura. Static HTML/CSS/JS, depl
 - Circular theme wipe and cross-page transitions via the View Transitions API
 - Animated particle background that links to the cursor
 - One-time boot intro and scroll reveals, all disabled under `prefers-reduced-motion`
-- Featured projects plus a filterable archive on `/projects/`
+- Project case studies on `/projects/` (live embed where a site allows framing, repo file tree and language bar otherwise) plus smaller builds
 - HTML resume at `/resume/` with a downloadable PDF
 - Contact form via Formspree (AJAX, with a plain POST fallback)
 - Meta / Open Graph tags, sitemap, and a custom 404

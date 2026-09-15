@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Projects · Antonio De Oliveira Segura</title>
-  <meta name="description" content="Projects by Antonio De Oliveira Segura: a World Cup 2026 forecast model, the BoilerIndy campus platform, mobile apps, sports prediction models, and APIs.">
+  <meta name="description" content="Projects by Antonio De Oliveira Segura: the BoilerIndy campus platform, a World Cup 2026 forecast model, mobile apps, sports prediction models, and APIs.">
   <meta name="theme-color" content="#0b0c0f">
   <link rel="canonical" href="https://bysegura.com/projects/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="bysegura.com">
   <meta property="og:title" content="Projects · Antonio De Oliveira Segura">
-  <meta property="og:description" content="Forecasting models, full-stack platforms, mobile apps, and APIs.">
+  <meta property="og:description" content="Full-stack platforms, forecasting models, mobile apps, and APIs.">
   <meta property="og:url" content="https://bysegura.com/projects/">
   <meta name="twitter:card" content="summary">
   <link rel="icon" type="image/png" href="/assets/icon-as.png">
@@ -60,139 +60,229 @@
     <section class="page-head wrap">
       <p class="prompt" aria-hidden="true"><span class="path">~/projects</span> $ <span class="cmd">ls -la</span></p>
       <h1 data-boot>projects<span class="caret" aria-hidden="true"></span></h1>
-      <p data-boot>Forecasting models, full-stack platforms, mobile apps, and the tools I built along the way.</p>
+      <p data-boot>Full-stack platforms, forecasting models, mobile apps, and the tools I built along the way.</p>
     </section>
 
-    <!-- FEATURED -->
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <h2 class="section-title"><span class="idx">01 / featured</span>selected work</h2>
-        </div>
-        <div class="cards cards-2">
-          <article class="card reveal">
-            <div class="card-top"><span class="file">wc2026/</span><span>Jun 2026 - now</span></div>
-            <h3>World Cup 2026 Forecast</h3>
-            <p>A from-scratch statistical model of the 2026 FIFA World Cup. A Dixon-Coles bivariate-Poisson scoreline model (maximum-likelihood fit, 3-year time decay) with an Elo cross-check and a squad-value prior, feeding a Monte Carlo simulator over the real 48-team draw.</p>
-            <div class="stats"><span><b>0.17</b> out-of-sample RPS</span><span><b>48</b>-team tournament sim</span><span><b>&lt;16%</b> max title odds</span></div>
-            <ul class="tags"><li>Python</li><li>Dixon-Coles</li><li>Elo</li><li>Monte Carlo</li></ul>
-            <div class="card-links">
-              <a class="link" href="https://antoniodeoliveirasegura.github.io/wc2026/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-right"/></svg>live site</a>
-              <a class="link" href="https://github.com/Antoniodeoliveirasegura/wc2026" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>source</a>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-top"><span class="file">boilerindy/</span><span>Mar 2026 - now</span></div>
-            <h3>BoilerIndy</h3>
-            <p>A campus services platform for Purdue University Indianapolis with Purdue auth, schedule sync from .ics feeds, dining, transit, a community board, a grade tracker, and an AI campus assistant. Led a 3-person team and authored most of the codebase.</p>
-            <div class="stats"><span><b>157</b> REST endpoints</span><span><b>28</b> React pages</span><span><b>31</b>-table schema</span></div>
-            <ul class="tags"><li>React</li><li>Vite</li><li>Node/Express</li><li>Supabase</li><li>Playwright</li></ul>
-            <div class="card-links">
-              <a class="link" href="https://www.boilerindy.app/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-right"/></svg>live site</a>
-              <a class="link" href="https://github.com/Antoniodeoliveirasegura/boilerindy" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>source</a>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-top"><span class="file">fintech-ai/</span><span>May 2026</span></div>
-            <h3>Fintech AI Assistant</h3>
-            <p>A mobile-first Flutter app that simulates a fintech loan dashboard with payment history, protected routing, and a local AI assistant.</p>
-            <ul class="tags"><li>Flutter</li><li>Dart</li><li>Riverpod</li><li>GoRouter</li></ul>
-            <div class="card-links">
-              <a class="link" href="https://github.com/Antoniodeoliveirasegura/Fintech-AI-Assistant" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>source</a>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-top"><span class="file">sticker-scanner/</span><span>Apr 2026</span></div>
-            <h3>Panini Sticker Scanner</h3>
-            <p>An iOS app to scan and track a Panini sticker collection: live camera capture, review and confirm, a collection grid, and local persistent storage.</p>
-            <ul class="tags"><li>Swift</li><li>SwiftUI</li><li>AVFoundation</li></ul>
-            <div class="card-links">
-              <a class="link" href="https://github.com/Antoniodeoliveirasegura/StickerScanner" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>source</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ARCHIVE -->
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <h2 class="section-title"><span class="idx">02 / archive</span>everything else</h2>
-          <div class="filters" data-filters role="group" aria-label="Filter projects">
-            <button class="chip" type="button" data-filter="all" aria-pressed="true">all</button>
-            <button class="chip" type="button" data-filter="data" aria-pressed="false">data &amp; ml</button>
-            <button class="chip" type="button" data-filter="web" aria-pressed="false">apis &amp; web</button>
-            <button class="chip" type="button" data-filter="tools" aria-pressed="false">tools &amp; infra</button>
+    <!-- FEATURED CASE STUDIES -->
+    <section class="cases wrap" aria-label="Featured projects">
+      <article class="case reveal">
+        <div class="case-text">
+          <p class="case-num">01 / apis &amp; web</p>
+          <h2>BoilerIndy</h2>
+          <p class="case-when">Mar 2026 - now</p>
+          <p class="case-detail">A campus services platform for Purdue University Indianapolis: Purdue auth, schedule sync from .ics feeds, dining, transit, a community board, a grade tracker, an advertiser portal, and an AI campus assistant. Authored ~82% of 222 commits while leading a 3-person team; deployed to Vercel and Render.</p>
+          <dl class="bigstats">
+            <div><dt>118</dt><dd>REST endpoints</dd></div>
+            <div><dt>33</dt><dd>React pages</dd></div>
+            <div><dt>32</dt><dd>table Postgres schema</dd></div>
+          </dl>
+          <ul class="tags"><li>React</li><li>TypeScript</li><li>Node/Express</li><li>Supabase</li><li>Playwright</li></ul>
+          <div class="card-links">
+            <a class="link" href="https://www.boilerindy.app/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-right"/></svg>live site</a>
+            <a class="link" href="https://github.com/Antoniodeoliveirasegura/boilerindy" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>source</a>
           </div>
         </div>
+        <div class="case-media">
+          <div class="term">
+            <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span>boilerindy</span></div>
+            <div class="term-body">
+              <p class="term-cmd"><span>~/boilerindy</span> $ ls</p>
+              <p class="term-dir">├── .github/</p>
+              <p class="term-dir">├── boilerindy-react/</p>
+              <p class="term-dir">├── db/</p>
+              <p class="term-dir">├── docs/</p>
+              <p>├── .env.example</p>
+              <p>├── INCIDENT-RESPONSE.md</p>
+              <p>├── README.md</p>
+              <p>└── SECURITY.md</p>
+            </div>
+          </div>
+          <div class="langs">
+            <div class="langbar" role="img" aria-label="Languages: TypeScript 53.1%, JavaScript 44.3%, CSS 1.8%, PLpgSQL 0.8%, HTML 0.1%">
+              <span style="width:53.08%;background:#3178c6"></span><span style="width:44.29%;background:#f1e05a"></span><span style="width:1.76%;background:#663399"></span><span style="width:0.77%;background:#336790"></span><span style="width:0.11%;background:#e34c26"></span>
+            </div>
+            <ul class="legend" aria-hidden="true">
+              <li><span class="lang-dot" style="background:#3178c6"></span>TypeScript <b>53.1%</b></li>
+              <li><span class="lang-dot" style="background:#f1e05a"></span>JavaScript <b>44.3%</b></li>
+              <li><span class="lang-dot" style="background:#663399"></span>CSS <b>1.8%</b></li>
+              <li><span class="lang-dot" style="background:#336790"></span>PLpgSQL <b>0.8%</b></li>
+            </ul>
+          </div>
+        </div>
+      </article>
 
-        <ul class="archive" data-archive>
-          <li class="reveal" data-tags="data">
-            <span class="when">Apr 2026</span>
-            <div><h3>Football Data Analyzer</h3><p class="stack">Python · Gradient Boosting · SMOTE</p></div>
-            <p class="desc">Premier League performance analysis that predicts champion, top four, mid table, or relegation from FotMob data.</p>
-            <div class="links"><a class="icon-btn" href="https://github.com/Antoniodeoliveirasegura/footballData" target="_blank" rel="noopener" aria-label="Football Data Analyzer on GitHub"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg></a></div>
-          </li>
-          <li class="reveal" data-tags="data">
-            <span class="when">Apr 2026</span>
-            <div><h3>EPL Predictor</h3><p class="stack">Neural nets · Elo · Poisson</p></div>
-            <p class="desc">Premier League result predictions from a neural network ensemble combined with Elo ratings, with backtesting and upcoming-fixture forecasts.</p>
-            <div class="links"><a class="icon-btn" href="https://github.com/Antoniodeoliveirasegura/epl-predict" target="_blank" rel="noopener" aria-label="EPL Predictor on GitHub"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg></a></div>
-          </li>
-          <li class="reveal" data-tags="data">
-            <span class="when">Apr 2026</span>
-            <div><h3>Brasileirão Predictor</h3><p class="stack">Elo · Poisson</p></div>
-            <p class="desc">Match outcome predictions for Brazil's Série A, trained on historical data from 2003 onward.</p>
-            <div class="links"><a class="icon-btn" href="https://github.com/Antoniodeoliveirasegura/brasileirao" target="_blank" rel="noopener" aria-label="Brasileirão Predictor on GitHub"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg></a></div>
-          </li>
-          <li class="reveal" data-tags="data">
-            <span class="when">Apr 2026</span>
-            <div><h3>MLS Predictor</h3><p class="stack">Scraping · FotMob</p></div>
-            <p class="desc">A scraper and match prediction tool for Major League Soccer, pulling fixtures and per-match player stats.</p>
-            <div class="links"><a class="icon-btn" href="https://github.com/Antoniodeoliveirasegura/mls-predict" target="_blank" rel="noopener" aria-label="MLS Predictor on GitHub"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg></a></div>
-          </li>
-          <li class="reveal" data-tags="web">
-            <span class="when">Sep 2025</span>
-            <div><h3>Drug Alternatives API</h3><p class="stack">FastAPI · RxNav</p></div>
-            <p class="desc">Finds generic and brand alternatives for medications with strength-aware search and NDC code lookup.</p>
-            <div class="links"><a class="icon-btn" href="https://github.com/Antoniodeoliveirasegura/AlternativeMedicine" target="_blank" rel="noopener" aria-label="Drug Alternatives API on GitHub"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg></a></div>
-          </li>
-          <li class="reveal" data-tags="tools">
-            <span class="when">Jun 2025 - now</span>
-            <div><h3>Ubuntu Server Projects</h3><p class="stack">Linux · sysadmin</p></div>
-            <p class="desc">Configuring and securing Ubuntu servers and running always-on APIs.</p>
-            <div class="links"></div>
-          </li>
-          <li class="reveal" data-tags="tools">
-            <span class="when">May - Jun 2025</span>
-            <div><h3>Sustainability Extension</h3><p class="stack">Browser extension · JavaScript</p></div>
-            <p class="desc">Shows the carbon impact of websites and suggests eco-friendly alternatives while browsing.</p>
-            <div class="links"><a class="icon-btn" href="https://github.com/Antoniodeoliveirasegura/sustainabilityExtension" target="_blank" rel="noopener" aria-label="Sustainability Extension on GitHub"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg></a></div>
-          </li>
-          <li class="reveal" data-tags="web">
-            <span class="when">May - Jun 2025</span>
-            <div><h3>Sustainability API</h3><p class="stack">REST API</p></div>
-            <p class="desc">Sustainability metrics and environmental data, including carbon footprint calculations and renewable energy statistics.</p>
-            <div class="links"><a class="icon-btn" href="https://github.com/Antoniodeoliveirasegura/sustainability-api" target="_blank" rel="noopener" aria-label="Sustainability API on GitHub"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg></a></div>
-          </li>
-          <li class="reveal" data-tags="tools">
-            <span class="when">Mar 2025 - now</span>
-            <div><h3>Voice Twitch Moderator</h3><p class="stack">Speech recognition · NLP</p></div>
-            <p class="desc">A Twitch bot that handles chat moderation from spoken commands.</p>
-            <div class="links"><a class="icon-btn" href="https://github.com/Antoniodeoliveirasegura/twitch-voice-modbot" target="_blank" rel="noopener" aria-label="Voice Twitch Moderator on GitHub"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg></a></div>
-          </li>
-          <li class="reveal" data-tags="data">
-            <span class="when">Mar 2025</span>
-            <div><h3>Spotify Listening Analyzer</h3><p class="stack">Python</p></div>
-            <p class="desc">Analyzes Spotify listening history for patterns, favorite genres, and habits.</p>
-            <div class="links"><a class="icon-btn" href="https://github.com/Antoniodeoliveirasegura/Spotify-Listening-Pattern-Analyzer" target="_blank" rel="noopener" aria-label="Spotify Listening Analyzer on GitHub"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg></a></div>
-          </li>
-        </ul>
-        <p class="archive-empty" hidden>no projects match that filter.</p>
+      <article class="case flip reveal">
+        <div class="case-text">
+          <p class="case-num">02 / data &amp; ml</p>
+          <h2>World Cup 2026 Forecast</h2>
+          <p class="case-when">Jun 2026 - now</p>
+          <p class="case-detail">A from-scratch statistical model of the 2026 World Cup. A Dixon-Coles bivariate-Poisson scoreline model (maximum-likelihood fit, 3-year time decay) with an Elo cross-check and a connectivity-weighted squad-value prior, feeding a Monte Carlo simulator that plays the full 48-team tournament over the real draw and host advantage.</p>
+          <dl class="bigstats">
+            <div><dt>0.17</dt><dd>out-of-sample RPS</dd></div>
+            <div><dt>48</dt><dd>team tournament sim</dd></div>
+            <div><dt>&lt;16%</dt><dd>max title odds</dd></div>
+          </dl>
+          <ul class="tags"><li>Python</li><li>Dixon-Coles</li><li>Elo</li><li>Monte Carlo</li></ul>
+          <div class="card-links">
+            <a class="link" href="https://antoniodeoliveirasegura.github.io/wc2026/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-right"/></svg>live site</a>
+            <a class="link" href="https://github.com/Antoniodeoliveirasegura/wc2026" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>source</a>
+          </div>
+        </div>
+        <div class="case-media">
+          <div class="browser">
+            <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span>antoniodeoliveirasegura.github.io/wc2026</span></div>
+            <div class="embed-frame">
+              <iframe src="https://antoniodeoliveirasegura.github.io/wc2026/" loading="lazy" tabindex="-1" aria-hidden="true" sandbox="allow-scripts allow-same-origin" title="World Cup 2026 Forecast live preview"></iframe>
+              <a class="embed-cover" href="https://antoniodeoliveirasegura.github.io/wc2026/" target="_blank" rel="noopener" aria-label="Open the World Cup 2026 Forecast live site"><span>open live site <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-right"/></svg></span></a>
+            </div>
+          </div>
+          <div class="langs">
+            <div class="langbar" role="img" aria-label="Languages: Python 100%"><span style="width:100%;background:#3572A5"></span></div>
+            <ul class="legend" aria-hidden="true"><li><span class="lang-dot" style="background:#3572A5"></span>Python <b>100%</b></li></ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-text">
+          <p class="case-num">03 / mobile</p>
+          <h2>Fintech AI Assistant</h2>
+          <p class="case-when">May 2026</p>
+          <p class="case-detail">A mobile-first Flutter app that simulates a fintech loan dashboard with payment history, protected routing, and a local AI assistant. State lives in Riverpod; GoRouter handles navigation and auth guards.</p>
+          <dl class="bigstats">
+            <div><dt>Flutter</dt><dd>cross-platform</dd></div>
+            <div><dt>Riverpod</dt><dd>state</dd></div>
+            <div><dt>GoRouter</dt><dd>auth guards</dd></div>
+          </dl>
+          <ul class="tags"><li>Flutter</li><li>Dart</li><li>Riverpod</li><li>GoRouter</li></ul>
+          <div class="card-links">
+            <a class="link" href="https://github.com/Antoniodeoliveirasegura/Fintech-AI-Assistant" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>source</a>
+          </div>
+        </div>
+        <div class="case-media">
+          <div class="term">
+            <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span>Fintech-AI-Assistant</span></div>
+            <div class="term-body">
+              <p class="term-cmd"><span>~/Fintech-AI-Assistant</span> $ ls</p>
+              <p class="term-dir">├── android/</p>
+              <p class="term-dir">├── assets/</p>
+              <p class="term-dir">├── docs/</p>
+              <p class="term-dir">├── ios/</p>
+              <p class="term-dir">├── lib/</p>
+              <p class="term-dir">├── macos/</p>
+              <p>├── analysis_options.yaml</p>
+              <p>├── CONTRIBUTING.md</p>
+              <p>└── README.md</p>
+            </div>
+          </div>
+          <div class="langs">
+            <div class="langbar" role="img" aria-label="Languages: HTML 42.4%, Dart 41.9%, C++ 8.1%, CMake 6.4%, Swift 0.7%, C 0.5%">
+              <span style="width:42.35%;background:#e34c26"></span><span style="width:41.87%;background:#00B4AB"></span><span style="width:8.15%;background:#f34b7d"></span><span style="width:6.36%;background:#DA3434"></span><span style="width:0.74%;background:#F05138"></span><span style="width:0.53%;background:#555555"></span>
+            </div>
+            <ul class="legend" aria-hidden="true">
+              <li><span class="lang-dot" style="background:#e34c26"></span>HTML <b>42.4%</b></li>
+              <li><span class="lang-dot" style="background:#00B4AB"></span>Dart <b>41.9%</b></li>
+              <li><span class="lang-dot" style="background:#f34b7d"></span>C++ <b>8.1%</b></li>
+              <li><span class="lang-dot" style="background:#DA3434"></span>CMake <b>6.4%</b></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="case flip reveal">
+        <div class="case-text">
+          <p class="case-num">04 / mobile</p>
+          <h2>Panini Sticker Scanner</h2>
+          <p class="case-when">Apr 2026</p>
+          <p class="case-detail">An iOS app to scan and track a Panini sticker collection: live camera capture with AVFoundation, a review-and-confirm step, a collection grid, and local persistent storage, all in SwiftUI.</p>
+          <dl class="bigstats">
+            <div><dt>SwiftUI</dt><dd>interface</dd></div>
+            <div><dt>AVFoundation</dt><dd>camera</dd></div>
+            <div><dt>UI + unit</dt><dd>test targets</dd></div>
+          </dl>
+          <ul class="tags"><li>Swift</li><li>SwiftUI</li><li>AVFoundation</li></ul>
+          <div class="card-links">
+            <a class="link" href="https://github.com/Antoniodeoliveirasegura/StickerScanner" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>source</a>
+          </div>
+        </div>
+        <div class="case-media">
+          <div class="term">
+            <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span>StickerScanner</span></div>
+            <div class="term-body">
+              <p class="term-cmd"><span>~/StickerScanner</span> $ ls</p>
+              <p class="term-dir">├── StickerScanner/</p>
+              <p class="term-dir">├── StickerScanner.xcodeproj/</p>
+              <p class="term-dir">├── StickerScannerTests/</p>
+              <p class="term-dir">├── StickerScannerUITests/</p>
+              <p>└── README.md</p>
+            </div>
+          </div>
+          <div class="langs">
+            <div class="langbar" role="img" aria-label="Languages: Swift 100%"><span style="width:100%;background:#F05138"></span></div>
+            <ul class="legend" aria-hidden="true"><li><span class="lang-dot" style="background:#F05138"></span>Swift <b>100%</b></li></ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- SMALLER BUILDS -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title"><span class="idx">more</span>smaller builds &amp; experiments</h2>
+        </div>
+        <div class="tiles">
+          <a class="tile reveal" href="https://github.com/Antoniodeoliveirasegura/footballData" target="_blank" rel="noopener">
+            <span class="tile-top"><span class="lang-dot" style="background:#3572A5"></span>Python<span class="tile-year">2026</span></span>
+            <h3>Football Data Analyzer</h3>
+            <p>Predicts a Premier League side's finish from season stats with Gradient Boosting and SMOTE.</p>
+          </a>
+          <a class="tile reveal" href="https://github.com/Antoniodeoliveirasegura/epl-predict" target="_blank" rel="noopener">
+            <span class="tile-top"><span class="lang-dot" style="background:#3572A5"></span>Python<span class="tile-year">2026</span></span>
+            <h3>EPL Predictor</h3>
+            <p>Premier League results from a neural net ensemble plus Elo and Poisson, with backtesting.</p>
+          </a>
+          <a class="tile reveal" href="https://github.com/Antoniodeoliveirasegura/brasileirao" target="_blank" rel="noopener">
+            <span class="tile-top"><span class="lang-dot" style="background:#3572A5"></span>Python<span class="tile-year">2026</span></span>
+            <h3>Brasileirão Predictor</h3>
+            <p>Série A match predictions from Elo and Poisson, trained on data back to 2003.</p>
+          </a>
+          <a class="tile reveal" href="https://github.com/Antoniodeoliveirasegura/mls-predict" target="_blank" rel="noopener">
+            <span class="tile-top"><span class="lang-dot" style="background:#3572A5"></span>Python<span class="tile-year">2026</span></span>
+            <h3>MLS Predictor</h3>
+            <p>Scraper and match predictor for Major League Soccer using FotMob player stats.</p>
+          </a>
+          <a class="tile reveal" href="https://github.com/Antoniodeoliveirasegura/AlternativeMedicine" target="_blank" rel="noopener">
+            <span class="tile-top"><span class="lang-dot" style="background:#3572A5"></span>Python<span class="tile-year">2025</span></span>
+            <h3>Drug Alternatives API</h3>
+            <p>Finds generic and brand alternatives for medications via the NLM RxNav API.</p>
+          </a>
+          <div class="tile reveal">
+            <span class="tile-top"><span class="lang-dot" style="background:var(--muted)"></span>Linux<span class="tile-year">2025</span></span>
+            <h3>Ubuntu Server Projects</h3>
+            <p>Self-hosted, secured Ubuntu servers running always-on APIs.</p>
+          </div>
+          <a class="tile reveal" href="https://github.com/Antoniodeoliveirasegura/sustainabilityExtension" target="_blank" rel="noopener">
+            <span class="tile-top"><span class="lang-dot" style="background:#f1e05a"></span>JavaScript<span class="tile-year">2025</span></span>
+            <h3>Sustainability Extension</h3>
+            <p>Chrome extension that shows live brand sustainability ratings from Good On You.</p>
+          </a>
+          <a class="tile reveal" href="https://github.com/Antoniodeoliveirasegura/sustainability-api" target="_blank" rel="noopener">
+            <span class="tile-top"><span class="lang-dot" style="background:#3572A5"></span>Python<span class="tile-year">2025</span></span>
+            <h3>Sustainability API</h3>
+            <p>Flask API serving sustainable brand ratings from a scraper and cache.</p>
+          </a>
+          <a class="tile reveal" href="https://github.com/Antoniodeoliveirasegura/twitch-voice-modbot" target="_blank" rel="noopener">
+            <span class="tile-top"><span class="lang-dot" style="background:#3572A5"></span>Python<span class="tile-year">2025</span></span>
+            <h3>Voice Twitch Moderator</h3>
+            <p>Speech recognition bot that updates Nightbot's blacklist from spoken commands.</p>
+          </a>
+          <a class="tile reveal" href="https://github.com/Antoniodeoliveirasegura/Spotify-Listening-Pattern-Analyzer" target="_blank" rel="noopener">
+            <span class="tile-top"><span class="lang-dot" style="background:#3572A5"></span>Python<span class="tile-year">2025</span></span>
+            <h3>Spotify Listening Analyzer</h3>
+            <p>Finds patterns, favorite genres, and habits in Spotify streaming history.</p>
+          </a>
+        </div>
       </div>
     </section>
   </main>

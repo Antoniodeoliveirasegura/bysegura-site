@@ -1,7 +1,7 @@
 /* ─────────────────────────────────────────────────────────────
    site.js: shared behaviour for every page on bysegura.com
    Theme toggle, particle background, boot intro, scroll reveals,
-   card spotlight, project filters, and the contact form.
+   card spotlight, live-site embeds, and the contact form.
    Loaded with `defer`, so the DOM is parsed when this runs.
    ───────────────────────────────────────────────────────────── */
 (function () {
@@ -21,7 +21,7 @@
   boot();
   reveals();
   spotlight();
-  filters();
+  embeds();
   contactForm();
 
   // ─── Theme ───
@@ -292,36 +292,17 @@
     });
   }
 
-  // ─── Archive filters (projects page) ───
-  function filters() {
-    var bar = document.querySelector("[data-filters]");
-    var list = document.querySelector("[data-archive]");
-    if (!bar || !list) return;
-    var rows = list.querySelectorAll("li[data-tags]");
-    var empty = document.querySelector(".archive-empty");
-
-    each(".chip", function (chip) {
-      var f = chip.getAttribute("data-filter");
-      var count = f === "all" ? rows.length : list.querySelectorAll('li[data-tags~="' + f + '"]').length;
-      var badge = document.createElement("span");
-      badge.className = "count";
-      badge.textContent = count;
-      chip.appendChild(badge);
-
-      chip.addEventListener("click", function () {
-        each(".chip", function (c) { c.setAttribute("aria-pressed", String(c === chip)); }, bar);
-        var shown = 0;
-        Array.prototype.forEach.call(rows, function (row) {
-          var match = f === "all" || (" " + row.getAttribute("data-tags") + " ").indexOf(" " + f + " ") > -1;
-          row.hidden = !match;
-          if (match) {
-            shown++;
-            row.classList.add("in");
-          }
-        });
-        if (empty) empty.hidden = shown > 0;
+  // ─── Live-site embeds: scale a 1280px-wide page down to its frame ───
+  function embeds() {
+    var frames = document.querySelectorAll(".embed-frame");
+    if (!frames.length || !("ResizeObserver" in window)) return;
+    var ro = new ResizeObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var iframe = entry.target.querySelector("iframe");
+        if (iframe) iframe.style.transform = "scale(" + entry.contentRect.width / 1280 + ")";
       });
-    }, bar);
+    });
+    Array.prototype.forEach.call(frames, function (f) { ro.observe(f); });
   }
 
   // ─── Contact form: submit over fetch, draw a check on success ───
