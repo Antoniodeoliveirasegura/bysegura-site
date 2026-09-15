@@ -1014,14 +1014,18 @@ p {
   color: var(--fg-2);
 }
 
+/* flex, not a fixed 3-column grid: a long value like "AVFoundation" wraps
+   to its own row instead of breaking mid-word */
 .bigstats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
   margin: 0 0 22px;
 }
 
 .bigstats div {
+  flex: 1 1 96px;
+  min-width: max-content;
   padding-top: 12px;
   border-top: 1px solid var(--line-2);
 }
@@ -1030,7 +1034,7 @@ p {
   color: var(--fg);
   font: 700 clamp(1.3rem, 2.4vw, 1.7rem)/1.1 var(--font-mono);
   letter-spacing: -0.04em;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
 }
 
 .bigstats dd {
@@ -1130,7 +1134,6 @@ p {
 }
 
 .term-body {
-  min-height: 260px;
   padding: 16px 18px;
   color: var(--fg-2);
   font: 400 13px/1.75 var(--font-mono);

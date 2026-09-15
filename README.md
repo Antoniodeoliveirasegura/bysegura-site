@@ -35,10 +35,14 @@ CNAME                 custom domain
 ## Local preview
 
 ```bash
-python3 -m http.server 4173
+python3 scripts/serve.py
 ```
 
-Then open http://localhost:4173. Paths are root-relative, so open the site through a server rather than `file://`.
+Then open http://localhost:4173. It sends `Cache-Control: no-store`, so edits show up on a normal reload. Paths are root-relative, so open the site through a server rather than `file://`.
+
+## Cache busting
+
+Pages link `site.css?v=YYYYMMDD` and `site.js?v=YYYYMMDD`. Bump the date in every page's `<head>` whenever either file changes, so returning visitors never get new HTML with old CSS (GitHub Pages caches assets for 10 minutes).
 
 ## Deploy
 
