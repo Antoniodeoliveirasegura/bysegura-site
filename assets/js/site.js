@@ -295,15 +295,22 @@
   // ─── Live-site embeds: scale a 1280px-wide page down to its frame ───
   function embeds() {
     var frames = document.querySelectorAll(".embed-frame");
-    if (!frames.length || !("ResizeObserver" in window)) return;
+    if (!frames.length) return;
+
+    // A zero width means the tab has no layout yet, so leave the last good
+    // scale alone rather than collapsing or un-scaling the preview.
+    function fit(frame) {
+      var width = frame.getBoundingClientRect().width;
+      var iframe = frame.querySelector("iframe");
+      if (width && iframe) iframe.style.transform = "scale(" + width / 1280 + ")";
+    }
+
+    // Set it now: a hidden tab never runs the resize callback, and an unscaled
+    // 1280px page would show as a crop until it does.
+    Array.prototype.forEach.call(frames, fit);
+    if (!("ResizeObserver" in window)) return;
     var ro = new ResizeObserver(function (entries) {
-      entries.forEach(function (entry) {
-        // a hidden or not-yet-laid-out tab can report 0 width; keep the last good
-        // scale instead of collapsing the preview
-        if (!entry.contentRect.width) return;
-        var iframe = entry.target.querySelector("iframe");
-        if (iframe) iframe.style.transform = "scale(" + entry.contentRect.width / 1280 + ")";
-      });
+      entries.forEach(function (entry) { fit(entry.target); });
     });
     Array.prototype.forEach.call(frames, function (f) { ro.observe(f); });
   }
