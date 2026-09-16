@@ -298,6 +298,9 @@
     if (!frames.length || !("ResizeObserver" in window)) return;
     var ro = new ResizeObserver(function (entries) {
       entries.forEach(function (entry) {
+        // a hidden or not-yet-laid-out tab can report 0 width; keep the last good
+        // scale instead of collapsing the preview
+        if (!entry.contentRect.width) return;
         var iframe = entry.target.querySelector("iframe");
         if (iframe) iframe.style.transform = "scale(" + entry.contentRect.width / 1280 + ")";
       });
