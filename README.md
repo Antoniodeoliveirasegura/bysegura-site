@@ -28,7 +28,8 @@ resume/index.html     resume
 assets/css/site.css   all styles (shared)
 assets/js/site.js     all behaviour (shared)
 assets/icons.svg      SVG icon sprite
-resume.pdf            downloadable resume
+resume.pdf            downloadable resume (generated, see below)
+scripts/resume-pdf/   react-pdf generator for resume.pdf (resume.json holds the content)
 CNAME                 custom domain
 ```
 
@@ -36,6 +37,14 @@ CNAME                 custom domain
 
 ```bash
 python3 scripts/serve.py
+```
+
+## Rebuild the resume PDF
+
+The resume content lives in `scripts/resume-pdf/resume.json`; the HTML page in `resume/index.html` is edited by hand to match. The generator uses the Georgia fonts that ship with macOS.
+
+```bash
+cd scripts/resume-pdf && pnpm install && pnpm run build
 ```
 
 Then open http://localhost:4173. It sends `Cache-Control: no-store`, so edits show up on a normal reload. Paths are root-relative, so open the site through a server rather than `file://`.

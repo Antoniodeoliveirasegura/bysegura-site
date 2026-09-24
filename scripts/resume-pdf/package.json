@@ -1,0 +1,13 @@
+{
+  "name": "resume-pdf",
+  "private": true,
+  "type": "module",
+  "description": "Rebuilds ../../resume.pdf from resume.json with react-pdf and the macOS Georgia fonts",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "^4.9.0",
+    "react": "^19.3.0"
+  }
+}

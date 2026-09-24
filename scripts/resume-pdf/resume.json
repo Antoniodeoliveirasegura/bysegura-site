@@ -1,0 +1,129 @@
+{
+  "name": "Antonio Cassio De Oliveira Segura",
+  "contact": {
+    "location": "Miami, FL",
+    "email": "antoniodeoliveirasegura@gmail.com",
+    "links": [
+      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/antoniodeoliveirasegura/" },
+      { "label": "GitHub", "href": "https://github.com/Antoniodeoliveirasegura" },
+      { "label": "Website", "href": "https://bysegura.com" }
+    ]
+  },
+  "education": [
+    {
+      "school": "Purdue University, College of Engineering",
+      "when": "Aug 2024 - May 2028",
+      "degree": "Bachelor of Science, Computer Engineering (GPA: 3.1)",
+      "where": "West Lafayette, IN",
+      "bullets": [
+        { "label": "Coursework: ", "text": "Advanced C Programming, Python for Data Science, Discrete Mathematics, Digital System Design, Multivariable Calculus, Differential Equations" }
+      ]
+    },
+    {
+      "school": "Yonsei University",
+      "when": "Aug 2026 - Dec 2026",
+      "degree": "Visiting Student, Electrical and Electronics Engineering",
+      "where": "Seoul, South Korea",
+      "bullets": [
+        { "label": "Coursework: ", "text": "Software Engineering, Signals and Systems, Principles of Marketing, Law and Justice" }
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "org": "OneBlinc (BlincAdvance)",
+      "when": "May 2026 - Present",
+      "title": "Software Engineer, previously Software Engineer Intern (May - Aug 2026)",
+      "where": "Hybrid",
+      "bullets": [
+        "Built serverless event-processing handlers on AWS (Lambda and SQS batch processing) with parameterized SQL, delivered across 3 merged PRs with unit tests and mock repositories, in a production AWS CDK stack (Python).",
+        "Designed an automated repayment retry pipeline with SQL logic and payment error classification, plus a notification selector Lambda that batches reminder events for the collections platform.",
+        "Migrated customer analytics from JavaScript to Django behind feature-flagged routing for a gradual rollout.",
+        "Refactored 7+ event handlers into a unified dispatcher spanning the Django/DRF backend and Flutter mobile app, and improved error handling and CI checks across 3 production services (backend, mobile, and AWS infrastructure)."
+      ]
+    },
+    {
+      "org": "The Data Mine · Purdue University",
+      "when": "Aug 2025 - Dec 2025",
+      "title": "Undergraduate Data Science Researcher",
+      "where": "West Lafayette, IN",
+      "bullets": [
+        "Analyzed diagnostic trouble code (DTC) trends in Allison Transmission telematics data with Python and pandas, surfacing recurring failure patterns for the team's vehicle-performance insights.",
+        "Built automated Python scripts for data engineering and trend detection across real-world telematics datasets, cutting manual analysis time for the research team."
+      ]
+    },
+    {
+      "org": "Purdue University College of Engineering",
+      "when": "Aug 2025 - May 2026",
+      "title": "Undergraduate Teaching Assistant, ENGR 13300",
+      "where": "Indianapolis, IN",
+      "bullets": [
+        "Supported ENGR 13300 instruction by leading weekly in-class exercises and clarifying programming and engineering concepts using MATLAB, Python (pandas), and LaTeX; this hands-on guidance helped raise average exam scores and earned positive feedback from students."
+      ]
+    },
+    {
+      "org": "Weldon School of Biomedical Engineering · Purdue",
+      "when": "Jan 2025 - Dec 2025",
+      "title": "Undergraduate Researcher, Engineering First Time Researcher (FTR) Fellow",
+      "where": "Indianapolis, IN",
+      "bullets": [
+        "Researched PEDOT:PSS-MXene neural bioelectrodes, running cyclic voltammetry, EIS, and pulse-waveform characterization and analyzing results in Python and MATLAB to confirm improved conductivity and stability; co-authoring a manuscript in preparation for publication."
+      ]
+    },
+    {
+      "org": "Goldman Sachs",
+      "when": "Jan 2025 - Dec 2025",
+      "title": "Engineering Possibilities Summit",
+      "where": "United States",
+      "bullets": [
+        "Selected as 1 of 2,000 participants from a pool of 14,000+ applicants; completed a Controllers job simulation covering Net Asset Value calculation, unitized financial data, and Excel-based validation and reconciliation."
+      ]
+    },
+    {
+      "org": "Vertically Integrated Projects (VIP) · Allegion",
+      "when": "Aug 2024 - May 2025",
+      "title": "Project Manager Researcher",
+      "where": "Indianapolis, IN",
+      "bullets": [
+        "Programmed embedded C and Python firmware for IoT security prototypes and researched solar, thermal, and RF energy harvesting, analyzing energy-storage data in MATLAB to extend device battery life; collaborated with hardware and software teams using Onshape and PCB-design tools."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "BoilerIndy",
+      "link": { "label": "github.com/Antoniodeoliveirasegura/boilerindy", "href": "https://github.com/Antoniodeoliveirasegura/boilerindy" },
+      "when": "Mar 2026 - Present",
+      "bullets": [
+        "Full-stack campus platform · React, Vite, Node.js/Express, Supabase (PostgreSQL), Playwright",
+        "Engineered a full-stack campus app: 118 REST endpoints across 32 backend modules, 33 React pages, and a 32-table PostgreSQL schema, authoring ~82% of 222 commits while leading a 3-person team.",
+        "Shipped 7+ feature areas (authentication, schedule sync with .ics calendar feeds, dining, community board, grade tracker, advertiser portal, AI assistant) and covered them with 30 unit and 6 Playwright E2E test files; deployed to Vercel and Render."
+      ]
+    },
+    {
+      "name": "WC2026 World Cup Forecast",
+      "link": { "label": "github.com/Antoniodeoliveirasegura/wc2026", "href": "https://github.com/Antoniodeoliveirasegura/wc2026" },
+      "when": "Jun 2026 - Present",
+      "bullets": [
+        "Statistical match & tournament model · Python",
+        "Built a Dixon-Coles bivariate-Poisson scoreline model (maximum-likelihood fit, 3-year time decay) with an Elo cross-check and a connectivity-weighted squad-value prior, reaching out-of-sample RPS of 0.17, on par with betting-market accuracy.",
+        "Simulated the full 48-team tournament over the real draw and host advantage, producing calibrated title odds where no nation exceeds a 16% championship probability."
+      ]
+    },
+    {
+      "name": "bysegura.com",
+      "link": { "label": "bysegura.com", "href": "https://bysegura.com" },
+      "when": "",
+      "bullets": [
+        "Personal portfolio site · HTML / CSS / JavaScript, GitHub Pages",
+        "Hand-built a no-framework responsive site with animated canvas backgrounds, persisted light/dark theming, and a live Twitch-status indicator served from a custom api.bysegura.com endpoint."
+      ]
+    }
+  ],
+  "skills": [
+    { "label": "Languages", "text": "Python, TypeScript, JavaScript (ES modules), C/C++, Dart, SQL, R, MATLAB, Bash" },
+    { "label": "Frameworks & Libraries", "text": "React, Node.js, Express, Django / DRF, Flutter, Vite, pandas, NumPy" },
+    { "label": "Cloud & Data", "text": "AWS (Lambda, SQS, CDK), Supabase, PostgreSQL, Vercel, Render" },
+    { "label": "Testing & Tools", "text": "Git / GitHub, GitHub Actions, Playwright, pytest, node:test, LaTeX" }
+  ]
+}
